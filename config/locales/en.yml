@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  navbar:
+    login: Iniciar sesión
+    sign_up: Registrarse
+    sign_out: Cerrar sesión
