@@ -9,8 +9,6 @@
 /log/*.log
 /tmp
 
-/config/database*
-
 *.rbc
 *.sassc
 .sass-cache
