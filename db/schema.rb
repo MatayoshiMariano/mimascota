@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922184813) do
+ActiveRecord::Schema.define(version: 20130925011531) do
+
+  create_table "dogs", force: true do |t|
+    t.string   "name"
+    t.string   "age"
+    t.string   "race"
+    t.string   "color"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
