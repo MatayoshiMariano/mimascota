@@ -40,6 +40,7 @@ gem 'loadjs'
 #The debugger
 gem "pry", "~> 0.9.12.2"
 
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

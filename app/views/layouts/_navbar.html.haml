@@ -5,7 +5,7 @@
       %a.brand Mi Mascota
       %ul.nav
         %li.home 
-          %a{href: root_url} Home
+          = link_to "#{t('navbar.home')}", root_path
         - if !user_signed_in?
           %li.login
             = link_to "#{t('navbar.login')}", new_user_session_path
