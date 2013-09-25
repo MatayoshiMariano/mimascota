@@ -1,11 +1,14 @@
 %html
-%head
-  %title Mimascota
-  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-  = javascript_include_tag "application", "data-turbolinks-track" => true
-  = csrf_meta_tags
-%body{:'data-controller' => controller.controller_name, :'data-action' => controller.action_name}
-  = render partial: "layouts/navbar"
-  .container.main-container
-    %p= bootstrap_flash
-    = yield
+  %head
+    %title Mimascota
+    = stylesheet_link_tag    "application", media: "all", 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    %link{href: 'http://fonts.googleapis.com/css?family=Open+Sans:600', rel: 'stylesheet', type: 'text/css'}
+    = csrf_meta_tags
+    
+  %body{'data-controller' => "#{controller.controller_name}", 'data-action' => "#{controller.action_name}"}
+    = render partial: "layouts/navbar"
+    .container.main-container
+      %p= bootstrap_flash
+      = yield
+    = render partial: "layouts/footer"
