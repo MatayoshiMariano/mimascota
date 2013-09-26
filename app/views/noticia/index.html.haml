@@ -1,0 +1,21 @@
+%h1 Listing noticia
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th
+    %th
+    %th
+
+  - @noticia.each do |noticium|
+    %tr
+      %td= noticium.title
+      %td= noticium.content
+      %td= link_to 'Show', noticium
+      %td= link_to 'Edit', edit_noticium_path(noticium)
+      %td= link_to 'Destroy', noticium, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Noticium', new_noticium_path
