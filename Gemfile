@@ -46,7 +46,7 @@ gem 'lodash-rails'
 
 gem 'gmaps4rails'
 
-gem 'rb-readline'
+gem 'rb-readline', :require => false
 
 
 group :doc do
