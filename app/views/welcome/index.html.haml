@@ -1,2 +1,3 @@
 %h1 ASDASDb
-= gmaps4rails(@json)
+/-binding.pry
+= gmaps({"map_options" => {"auto_adjust" => true, detect_location: true, center_on_user: true,:center_latitude => -34.6, :center_longitude => -58.45 , zoom: 13},"markers" => {"data" => @json } })
