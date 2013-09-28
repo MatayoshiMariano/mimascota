@@ -11,4 +11,4 @@
         -else
           %li.sign-up= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'
         %li.noticias
-          %a{href: "#"} Noticias
+          %a{href: "#{noticia_path}"} Noticias
