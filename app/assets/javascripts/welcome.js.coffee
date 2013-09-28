@@ -1,5 +1,4 @@
 load({controller: 'welcome', action: 'index'}, (controller, action) ->
-  debugger
   Gmaps.map.callback = ->
     Gmaps.map.createMarker
       Lat: -34.6
