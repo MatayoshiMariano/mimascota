@@ -8,13 +8,13 @@ class DevSeeds
   end
 
   def seed
-    seed_dogs    
+    seed_wanted_dogs    
   end
 
   private
-    def seed_dogs
+    def seed_wanted_dogs
       @@dogs_count.times do |i|
-        Dog.create!(name: Faker::Name.first_name, age: Faker::Number.digit, race: random_breed,
+        WantedDog.create!(name: Faker::Name.first_name, age: Faker::Number.digit, breed: random_breed,
           color: 'black', user: random_user, description: Faker::Lorem.paragraphs(rand(2..8)).join('\n'),
           image: get_dog_image, latitude: random_latitude, longitude: random_longitud)
       end      
@@ -53,5 +53,5 @@ class DevSeeds
 
 end
 
-Dog.delete_all
+WantedDog.delete_all
 DevSeeds.new.seed

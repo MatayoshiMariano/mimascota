@@ -11,24 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925013435) do
-
-  create_table "dogs", force: true do |t|
-    t.string   "name"
-    t.string   "age"
-    t.string   "race"
-    t.string   "color"
-    t.integer  "user_id"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
-  end
-
-  add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
+ActiveRecord::Schema.define(version: 20130926170010) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -47,5 +30,24 @@ ActiveRecord::Schema.define(version: 20130925013435) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wanted_dogs", force: true do |t|
+    t.string   "name"
+    t.string   "age"
+    t.string   "breed"
+    t.string   "color"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.string   "last_seen_on"
+    t.date     "last_seen_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+  end
+
+  add_index "wanted_dogs", ["user_id"], name: "index_wanted_dogs_on_user_id", using: :btree
 
 end
