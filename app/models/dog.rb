@@ -13,7 +13,7 @@ class Dog < ActiveRecord::Base
   validates :longitude, presence: true
 
   def gmaps4rails_address
-  #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "Av de mayo 123, Capital Federal"
+    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
+    "#{self.latitude}, #{self.longitude}"
   end  
 end
