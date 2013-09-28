@@ -7,3 +7,6 @@ load({controller: 'sessions', action: 'new'}, (controller, action) ->
 	$('.login').addClass("active");
 )
 
+load({controller: 'registrations', action: 'new'}, (controller, action) ->
+  $('.sign-up').addClass("active");
+)
