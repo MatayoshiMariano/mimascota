@@ -10,6 +10,7 @@
 /tmp
 
 /config/database*
+*~
 
 *.rbc
 *.sassc
