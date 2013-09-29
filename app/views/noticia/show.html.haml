@@ -1,12 +1,12 @@
 %p#notice= notice
 
 %p
-  %b Title:
+  %b #{t('titulo')}:
   = @noticium.title
 %p
-  %b Content:
+  %b #{t('contenido')}:
   = @noticium.content
 
-= link_to 'Edit', edit_noticium_path(@noticium)
+= link_to "#{t('editar')}", edit_noticium_path(@noticium)
 \|
-= link_to 'Back', noticia_path
+= link_to "#{t('atras')}", noticia_path

@@ -7,10 +7,10 @@
           %li= msg
 
   .field
-    = f.label :title
+    = f.label :"#{t('titulo')}"
     = f.text_field :title
   .field
-    = f.label :content
+    = f.label :"#{t('contenido')}"
     = f.text_area :content
   .actions
-    = f.submit 'Save'
+    = f.submit "#{t('guardar')}"

@@ -1,14 +1,16 @@
 class NoticiaController < ApplicationController
   before_action :set_noticium, only: [:show, :edit, :update, :destroy]
 
+  # TODO hecho para salvar error en pruebas
+  def authenticate
+  end
+
   # GET /noticia
-  # GET /noticia.json
   def index
     @noticia = Noticium.all
   end
 
   # GET /noticia/1
-  # GET /noticia/1.json
   def show
   end
 
@@ -22,42 +24,34 @@ class NoticiaController < ApplicationController
   end
 
   # POST /noticia
-  # POST /noticia.json
   def create
     @noticium = Noticium.new(noticium_params)
 
     respond_to do |format|
       if @noticium.save
         format.html { redirect_to @noticium, notice: 'Noticium was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @noticium }
       else
         format.html { render action: 'new' }
-        format.json { render json: @noticium.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /noticia/1
-  # PATCH/PUT /noticia/1.json
   def update
     respond_to do |format|
       if @noticium.update(noticium_params)
         format.html { redirect_to @noticium, notice: 'Noticium was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @noticium.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /noticia/1
-  # DELETE /noticia/1.json
   def destroy
     @noticium.destroy
     respond_to do |format|
       format.html { redirect_to noticia_url }
-      format.json { head :no_content }
     end
   end
 

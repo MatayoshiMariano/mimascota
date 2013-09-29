@@ -1,7 +1,7 @@
-%h1 Editing noticium
+%h1 #{t('editar_noticia')}
 
 = render 'form'
 
-= link_to 'Show', @noticium
+= link_to "#{t('mostrar')}", @noticium
 \|
-= link_to 'Back', noticia_path
+= link_to "#{t('atras')}", noticia_path

@@ -1,9 +1,9 @@
-%h1 Listing noticia
+%h1 #{t('listado_de_noticias')}
 
 %table
   %tr
-    %th Title
-    %th Content
+    %th #{t('titulo')}
+    %th #{t('contenido')}
     %th
     %th
     %th
@@ -12,10 +12,10 @@
     %tr
       %td= noticium.title
       %td= noticium.content
-      %td= link_to 'Show', noticium
-      %td= link_to 'Edit', edit_noticium_path(noticium)
-      %td= link_to 'Destroy', noticium, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to "#{t('mostrar')}", noticium
+      %td= link_to "#{t('editar')}", edit_noticium_path(noticium)
+      %td= link_to "#{t('destruir')}", noticium, :method => :delete, :data => { :confirm => "#{t('esta_seguro?')}" }
 
 %br
 
-= link_to 'New Noticium', new_noticium_path
+= link_to "#{t('nueva_noticia')}", new_noticium_path
