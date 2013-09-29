@@ -1,21 +1,36 @@
 load({controller: 'welcome', action: 'index'}, (controller, action) ->
-  # showMarkers(false, 'WantedDog')
-  # showMarkers(true, 'LostDog')
-  # debugger
-  Gmaps.map.callback = ->
-    markers = Gmaps.map.markers
-    $.each(markers, (index, marker)->
-      if(marker.category == 'WantedDog')
-        marker.serviceObject.setVisible(false)
-      else if(marker.category == 'LostDog')
-        marker.serviceObject.setVisible(false)
-      )
+  showLostDogs()
+  showWantedDogs()
+  # Gmaps.map.callback = () ->
+  #   markers = Gmaps.map.markers
+  #   $.each(markers, (index, marker)->
+  #     marker.serviceObject.setVisible(false)
+  #   )
+
+  # Gmaps.map.callback = () ->
+  #    Gmaps.map.createMarker({
+  #       Lat: -30.612
+  #       Lng: -50.312
+  #    });    
 )
 
-# showMarkers = (bShow, category) ->
-#   Gmaps.map.callback = ->
-#     markers = Gmaps.map.markers
-#     $.each(markers, (index, marker)->
-#       if(marker.category == 'WantedDog')
-#         marker.serviceObject.setVisible(false)
-#       )
+showLostDogs = () ->
+  $('.btn.lost-dogs').click( (event) ->
+    debugger
+    $.getJSON "welcome/lost_dogs_json", (data) ->
+      Gmaps.map.replaceMarkers data
+  )
+
+showWantedDogs = () ->
+  $('.btn.wanted-dogs').click( (event) ->
+    $.getJSON "welcome/wanted_dogs_json", (data) ->
+      Gmaps.map.replaceMarkers data
+  )
+
+showMarkers = (bShow, sCategory) ->
+  Gmaps.map.callback = ->
+    markers = Gmaps.map.markers    
+    $.each(markers, (index, marker)->
+      if(marker.category == sCategory)
+        marker.serviceObject.setVisible(bShow)
+      )

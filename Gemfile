@@ -23,6 +23,9 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+
+gem 'gmaps4rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -40,11 +43,7 @@ gem 'loadjs'
 #The debugger
 gem "pry", "~> 0.9.12.2"
 
-gem 'jquery-turbolinks'
-
 gem 'lodash-rails'
-
-gem 'gmaps4rails'
 
 gem 'rb-readline', :require => false
 

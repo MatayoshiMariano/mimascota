@@ -1,12 +1,21 @@
 class WelcomeController < ApplicationController
 	def index
-    json_wanted_dogs = JSON.parse(WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
+    @json = WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
       marker.json({ category: 'WantedDog'})
-    end)
-    json_lost_dogs  = JSON.parse(LostDog.all.to_gmaps4rails do |wanted_dog, marker|
-      marker.json({ category: 'LostDog'})
-    end)
-    @json = (json_wanted_dogs + json_lost_dogs).to_json
+    end
 	end
 
+  def lost_dogs_json
+    @json_lost_dogs = LostDog.all.to_gmaps4rails do |wanted_dog, marker|
+      marker.json({ category: 'LostDog'})
+    end
+    render json: @json_lost_dogs
+  end
+
+  def wanted_dogs_json
+    @json_wanted_dogs = WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
+      marker.json({ category: 'WantedDog'})
+    end
+    render json: @json_wanted_dogs    
+  end
 end
