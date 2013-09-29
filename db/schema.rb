@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926170010) do
+ActiveRecord::Schema.define(version: 20130929005628) do
+
+  create_table "lost_dogs", force: true do |t|
+    t.string  "name"
+    t.string  "age"
+    t.string  "breed"
+    t.string  "color"
+    t.integer "user_id"
+    t.text    "description"
+    t.string  "image"
+    t.string  "last_seen_on"
+    t.date    "last_seen_time"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.boolean "gmaps"
+  end
+
+  add_index "lost_dogs", ["user_id"], name: "index_lost_dogs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
