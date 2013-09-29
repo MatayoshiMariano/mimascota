@@ -28,6 +28,8 @@ en:
   esta_seguro?: "Esta seguro?"
   guardar: Guardar  
   hello: "Hello world"
+  ingrese_contenido_aqui: "Ingrese el contenido aqui..."
+  ingrese_titulo_aqui: "Ingrese el Título aqui..."
   listado_de_noticias: "Listado de Noticias"
   mostrar: Mostrar
   noticias: Noticias

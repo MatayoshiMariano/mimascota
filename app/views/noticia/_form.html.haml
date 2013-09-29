@@ -8,9 +8,9 @@
 
   .field
     = f.label :"#{t('titulo')}"
-    = f.text_field :title
+    = f.text_field :title, :placeholder => "#{t('ingrese_titulo_aqui')}"
   .field
     = f.label :"#{t('contenido')}"
-    = f.text_area :content
+    = f.text_area :content, :placeholder => "#{t('ingrese_contenido_aqui')}"
   .actions
     = f.submit "#{t('guardar')}"
