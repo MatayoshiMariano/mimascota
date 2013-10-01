@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  back: Volver
   hello: "Hello world"
   navbar:
     login: Iniciar sesión

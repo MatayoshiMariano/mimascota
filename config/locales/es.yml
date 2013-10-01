@@ -1,0 +1,38 @@
+es:
+  hello: "Hello world"
+  navbar:
+    login: Iniciar sesión
+    sign_up: Registrarse
+    sign_out: Cerrar sesión
+    home: Inicio
+  user:
+    email: Email
+    password: Contraseña
+    password_confirmation: Confirmación contraseña
+    new_password: Nueva contraseña
+    actual_password: Contraseña actual
+    sign_up_title: Registro
+    sign_up_submit: Registrar
+    sign_in_title: Ingresar
+    forgot_password: ¿Olvidó su contraseña?
+    confirm_steps_missed: ¿No recibió sus intrucciones de confirmación?
+    unlock_steps_missed: ¿No recibió sus instrucciones de desbloqueo?
+    cancel_account: Cacelar mi cuenta
+    remember_me: Recordarme
+    change_password: Cambiar mi contraseña
+    send_reset_instruction: Enviar instrucciones para cambiar contraseña
+  helpers:
+    actions: "Actions"
+    links:
+      back: "Volver"
+      cancel: "Cancelar"
+      confirm: "¿Está ud. seguro?"
+      destroy: "Borrar"
+      new: "Nuevo"
+      edit: "Editar"
+      update: Actualizar
+    titles:
+      edit: "Editar %{model}"
+      save: "Guardar %{model}"
+      new: "Nuevo %{model}"
+      delete: "Borrar %{model}"    
