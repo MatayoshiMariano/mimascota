@@ -1,6 +1,6 @@
 class DevSeeds
 
-  @@dogs_count = 150
+  @@dogs_count = 100
 
   def initialize
     @random = Random.new
@@ -8,17 +8,27 @@ class DevSeeds
   end
 
   def seed
-    seed_dogs(LostDog)
-    seed_dogs(WantedDog)    
+    seed_disappeared_dogs(LostDog)
+    seed_disappeared_dogs(WantedDog)   
+    seed_non_disappeared_dogs(AdoptionDog)
+    seed_non_disappeared_dogs(FoundDog)
   end
 
   private
-    def seed_dogs(dogType)
+    def seed_disappeared_dogs(dogType)
       @@dogs_count.times do |i|
         dogType.create!(name: Faker::Name.first_name, age: Faker::Number.digit, breed: random_breed,
           color: 'black', user: random_user, description: Faker::Lorem.paragraphs(rand(2..8)).join('\n'),
           image: get_dog_image, latitude: random_latitude, longitude: random_longitud)
       end      
+    end
+
+    def seed_non_disappeared_dogs(dogType)
+      @@dogs_count.times do |i|
+        dogType.create!(name: Faker::Name.first_name, age: Faker::Number.digit, breed: random_breed,
+          color: 'black', user: random_user, description: Faker::Lorem.paragraphs(rand(2..8)).join('\n'),
+          image: get_dog_image, latitude: random_latitude, longitude: random_longitud)
+      end            
     end
 
     def init_breeds

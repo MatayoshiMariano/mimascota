@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929005628) do
+ActiveRecord::Schema.define(version: 20131005232106) do
+
+  create_table "adoption_dogs", force: true do |t|
+    t.string  "name"
+    t.string  "age"
+    t.string  "breed"
+    t.string  "color"
+    t.integer "user_id"
+    t.text    "description"
+    t.string  "image"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.boolean "gmaps"
+  end
+
+  add_index "adoption_dogs", ["user_id"], name: "index_adoption_dogs_on_user_id", using: :btree
+
+  create_table "found_dogs", force: true do |t|
+    t.string  "name"
+    t.string  "age"
+    t.string  "breed"
+    t.string  "color"
+    t.integer "user_id"
+    t.text    "description"
+    t.string  "image"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.boolean "gmaps"
+  end
+
+  add_index "found_dogs", ["user_id"], name: "index_found_dogs_on_user_id", using: :btree
 
   create_table "lost_dogs", force: true do |t|
     t.string  "name"
