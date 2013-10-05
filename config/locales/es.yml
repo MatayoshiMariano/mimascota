@@ -1,5 +1,6 @@
 es:
   hello: "Hello world"
+  nueva_noticia: "Nueva Noticia"
   navbar:
     login: Iniciar sesión
     sign_up: Registrarse
