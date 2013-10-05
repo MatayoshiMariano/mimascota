@@ -1,0 +1,21 @@
+%h1 #{t('listado_de_noticias')}
+
+%table
+  %tr
+    %th #{t('titulo')}
+    %th #{t('contenido')}
+    %th
+    %th
+    %th
+
+  - @noticia.each do |noticium|
+    %tr
+      %td= noticium.title
+      %td= noticium.content
+      %td= link_to "#{t('mostrar')}", noticium
+      %td= link_to "#{t('editar')}", edit_noticium_path(noticium)
+      %td= link_to "#{t('destruir')}", noticium, :method => :delete, :data => { :confirm => "#{t('esta_seguro?')}" }
+
+%br
+
+= link_to "#{t('nueva_noticia')}", new_noticium_path
