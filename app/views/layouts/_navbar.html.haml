@@ -9,6 +9,6 @@
           %li.login= link_to "#{t('navbar.login')}", new_user_session_path
           %li.sign-up= link_to "#{t('navbar.sign_up')}", new_user_registration_path        
         -else
-          %li.sign-up= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'
+          %li.sign-out= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'
         %li.noticias
           %a{href: noticia_path} #{t('noticias')}

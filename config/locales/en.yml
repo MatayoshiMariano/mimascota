@@ -39,3 +39,8 @@ en:
     sign_up: Registrarse
     sign_out: Cerrar sesión
     home: Inicio
+  sidebar:
+    lost_dogs: Perros perdidos
+    wanted_dogs: Perros buscados
+    adopt_dogs: Perros en adopción
+    found_dogs: Perros encontrados
