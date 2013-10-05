@@ -1,0 +1,18 @@
+%html
+  %h3 Iniciar sesión
+  .row-fluid
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      .span4
+        %br/
+        = f.label :email, "#{t('user.email')}"
+        = f.email_field :email, :autofocus => true
+        = f.label :password, "#{t('user.password')}"
+        = f.password_field :password
+        - if devise_mapping.rememberable?
+          = f.label :remember_me, :class => "checkbox" do
+            = f.check_box :remember_me
+            = f.label :remember_me, "#{t('user.remember_me')}"
+        = render "devise/shared/links"
+        %br/
+        %br/
+        = f.submit  "#{t('user.sign_in_title')}",  class: "btn btn-primary"

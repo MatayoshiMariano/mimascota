@@ -20,7 +20,7 @@ es:
     cancel_account: Cacelar mi cuenta
     remember_me: Recordarme
     change_password: Cambiar mi contraseña
-    send_reset_instruction: Enviar instrucciones para cambiar contraseña
+    send_reset_instruction: Cambiar contraseña
   helpers:
     actions: "Actions"
     links:
