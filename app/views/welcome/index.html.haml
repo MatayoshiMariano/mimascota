@@ -1,3 +1,14 @@
-%h1 ASDASDb
-/-binding.pry
-= gmaps({"map_options" => {"auto_adjust" => true, detect_location: true, center_on_user: true,:center_latitude => -34.6, :center_longitude => -58.45 , zoom: 13},"markers" => {"data" => @json } })
+.container-fluid
+  .row-fluid
+    .span2
+      %ul.nav.nav-list
+        %li.active
+          %button.btn.wanted-dogs{type: "button"} #{t('sidebar.wanted_dogs')}
+        %li
+          %button.btn.lost-dogs{type: "button"} #{t('sidebar.lost_dogs')}
+        %li
+          %button.btn.adopt-dogs{type: "button"} #{t('sidebar.adopt_dogs')}
+        %li
+          %button.btn.found-dogs{type: "button"} #{t('sidebar.found_dogs')}
+    .span10
+      = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true } } })
