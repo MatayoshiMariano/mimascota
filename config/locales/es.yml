@@ -1,6 +1,18 @@
 es:
+  back: Volver
+  atras: Atrás
+  contenido: Contenido
+  destruir: Destruir
+  editar: Editar
+  editar_noticia: "Editar Noticia"
+  esta_seguro?: "Esta seguro?"
+  guardar: Guardar  
   hello: "Hello world"
+  listado_de_noticias: "Listado de Noticias"
+  mostrar: Mostrar
+  noticias: Noticias
   nueva_noticia: "Nueva Noticia"
+  titulo: "Título"
   navbar:
     login: Iniciar sesión
     sign_up: Registrarse

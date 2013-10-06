@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926170010) do
+ActiveRecord::Schema.define(version: 20130928034555) do
 
   create_table "dogs", force: true do |t|
     t.string   "name"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20130926170010) do
   end
 
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
+
+  create_table "lost_dogs", force: true do |t|
+    t.integer  "dog_id"
+    t.integer  "owner_id"
+    t.datetime "disappeared_on"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lost_dogs", ["dog_id"], name: "index_lost_dogs_on_dog_id", using: :btree
+  add_index "lost_dogs", ["owner_id"], name: "index_lost_dogs_on_owner_id", using: :btree
 
   create_table "noticia", force: true do |t|
     t.string   "title"
