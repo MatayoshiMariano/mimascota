@@ -1,30 +1,43 @@
 %h2
   Edit #{resource_name.to_s.humanize}
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email, "#{t('user.email')}"
-    %br/
-    = f.email_field :email, :autofocus => true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  %div
-    = f.label :password, "#{t('user.new_password')}"
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, :autocomplete => "off"
-  %div
-    = f.label :password_confirmation, "#{t('user.password_confirmation')}"
-    %br/
-    = f.password_field :password_confirmation
-  %div
-    = f.label :current_password, "#{t('user.actual_password')}"
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
-  %div= f.submit "#{t(update)}"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "#{t('user.cancel_account')}", registration_path(resource_name), :data => { :confirm => "¿Seguro?" }, :method => :delete}
-= link_to "#{t(back)}", :back
+.row-fluid
+  .span8  
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      %div
+        = f.label :first_name, "#{t('user.first_name')}"
+        = f.text_field :first_name, :autofocus => true  
+      %div
+        = f.label :last_name, "#{t('user.last_name')}"
+        = f.text_field :last_name, :autofocus => true        
+      %div
+        = f.label :birthday, "#{t('user.birthday')}"
+        = f.date_field :birthday, :autofocus => true              
+      %div
+        = f.label :phone, "#{t('user.phone')}"
+        = f.telephone_field :phone, :autofocus => true                    
+      %div
+        = f.label :cellphone, "#{t('user.cellphone')}"
+        = f.telephone_field :cellphone, :autofocus => true                            
+      %div
+        = f.label :email, "#{t('user.email')}"
+        = f.email_field :email, :autofocus => true
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      %div
+        = f.label :password, "#{t('user.new_password')}"
+        = f.password_field :password, :autocomplete => "off"
+      %div
+        = f.label :password_confirmation, "#{t('user.password_confirmation')}"
+        = f.password_field :password_confirmation
+      %div
+        = f.label :current_password, "#{t('user.actual_password')}"
+        = f.password_field :current_password 
+        %i Ingresa la contraseña para confirmar los cambios 
+      %div= f.submit "#{t('update')}" ,  class: "btn btn-primary"
+  .span4
+    .well.well-large
+      %h3 Cancelar mi cuenta
+      %p
+        Ya no quieres ser parte de la comunidad? #{button_to "#{t('user.cancel_account')}", registration_path(resource_name), :data => { :confirm => "¿Seguro?" }, :method => :delete}

@@ -4,6 +4,21 @@
   .row-fluid
   .span4
     %div
+      = f.label :first_name, "#{t('user.first_name')}"
+      = f.text_field :first_name, :autofocus => true  
+    %div
+      = f.label :last_name, "#{t('user.last_name')}"
+      = f.text_field :last_name, :autofocus => true        
+    %div
+      = f.label :birthday, "#{t('user.birthday')}"
+      = f.date_field :birthday, :autofocus => true              
+    %div
+      = f.label :phone, "#{t('user.phone')}"
+      = f.telephone_field :phone, :autofocus => true                    
+    %div
+      = f.label :cellphone, "#{t('user.cellphone')}"
+      = f.telephone_field :cellphone, :autofocus => true                          
+    %div
       = f.label :email, "#{t('user.email')}"
       = f.email_field :email, :autofocus => true
     %div

@@ -1,12 +1,32 @@
 es:
+  back: Volver
+  update: Actualizar
+  atras: Atrás
+  contenido: Contenido
+  destruir: Destruir
+  editar: Editar
+  editar_noticia: "Editar Noticia"
+  esta_seguro?: "Esta seguro?"
+  guardar: Guardar  
   hello: "Hello world"
+  listado_de_noticias: "Listado de Noticias"
+  mostrar: Mostrar
+  noticias: Noticias
   nueva_noticia: "Nueva Noticia"
+  titulo: "Título"
   navbar:
     login: Iniciar sesión
     sign_up: Registrarse
     sign_out: Cerrar sesión
     home: Inicio
+    profile: Perfil
   user:
+    first_name: Nombre
+    last_name: Apellido
+    birthday: Fecha de nacimiento
+    address: Dirección
+    cellphone: Celular
+    phone: Teléfono
     email: Email
     password: Contraseña
     password_confirmation: Confirmación contraseña
@@ -18,7 +38,7 @@ es:
     forgot_password: ¿Olvidó su contraseña?
     confirm_steps_missed: ¿No recibió sus intrucciones de confirmación?
     unlock_steps_missed: ¿No recibió sus instrucciones de desbloqueo?
-    cancel_account: Cacelar mi cuenta
+    cancel_account: Cancelar mi cuenta
     remember_me: Recordarme
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña

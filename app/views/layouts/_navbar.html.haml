@@ -8,7 +8,14 @@
         - if !user_signed_in?
           %li.login= link_to "#{t('navbar.login')}", new_user_session_path
           %li.sign-up= link_to "#{t('navbar.sign_up')}", new_user_registration_path        
-        -else
-          %li.sign-out= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'
+        -else 
+          %li.dropdown
+            %a{:href=>"#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown"}Mi cuenta<b class="caret"></b>
+            %div.dropdown-menu{:style=>"padding:15px;padding-bottom:0px;"}
+              %ul 
+                %li.profile= link_to current_user.first_name, edit_user_registration_path(@user_signed_in)
+                %li.sign-out= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'          
         %li.noticias
           %a{href: noticia_path} #{t('noticias')}
+
+        
