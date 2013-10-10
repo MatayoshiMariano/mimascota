@@ -39,6 +39,7 @@ es:
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu correo electrónico. Abre el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta correctamente, pero es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu correo y sigue el enlace de confirmación para finalizar la comprobación del nuevo correo eletrónico.
       updated: Tu cuenta fue actualizada.
+      password_needed: (Ingresa tu contraseña actual para confirmar los cambios)
     sessions:
       signed_in: Sesión iniciada.
       signed_out: Sesión finalizada.
