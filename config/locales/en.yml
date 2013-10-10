@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  back: Volver
   atras: Atrás
   contenido: Contenido
   destruir: Destruir
@@ -39,4 +40,9 @@ en:
     login: Iniciar sesión
     sign_up: Registrarse
     sign_out: Cerrar sesión
-    home: Inicio  
+    home: Inicio
+  sidebar:
+    lost_dogs: Perros perdidos
+    wanted_dogs: Perros buscados
+    adopt_dogs: Perros en adopción
+    found_dogs: Perros encontrados

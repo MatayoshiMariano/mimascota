@@ -1,0 +1,12 @@
+%html
+	%h3 ¿Olvidó su contraseña?
+	= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+		= devise_error_messages!
+		.row-fluid
+		.span4
+			- if devise_mapping.rememberable?
+				= f.label :email, "#{t('user.email')}"
+				= f.email_field :email, :autofocus => true
+		.row-fluid					
+		.span4
+			= f.submit "#{t('user.send_reset_instruction')}", class: "btn btn-primary"

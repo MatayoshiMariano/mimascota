@@ -46,6 +46,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.1)
+    faker (1.2.0)
+      i18n (~> 0.5)
     gmaps4rails (1.5.6)
     haml (4.0.3)
       tilt
@@ -159,6 +161,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  faker
   gmaps4rails
   haml-rails
   jbuilder (~> 1.2)
