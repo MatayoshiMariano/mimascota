@@ -1,0 +1,11 @@
+Sun, 29 Sep 2013 18:46:12 -0300
+README.rdoc	Tue, 24 Sep 2013 11:28:35 -0300
+app/controllers/application_controller.rb	Tue, 24 Sep 2013 11:28:35 -0300
+app/controllers/devise_overrides/registrations_controller.rb	Tue, 24 Sep 2013 11:28:35 -0300
+app/controllers/noticia_controller.rb	Sun, 29 Sep 2013 10:20:23 -0300
+app/controllers/welcome_controller.rb	Wed, 25 Sep 2013 14:10:37 -0300
+app/helpers/application_helper.rb	Tue, 24 Sep 2013 11:28:35 -0300
+app/helpers/noticia_helper.rb	Sun, 29 Sep 2013 10:20:23 -0300
+app/models/dog.rb	Wed, 25 Sep 2013 14:10:37 -0300
+app/models/noticium.rb	Sun, 29 Sep 2013 10:20:23 -0300
+app/models/user.rb	Tue, 24 Sep 2013 11:28:35 -0300
