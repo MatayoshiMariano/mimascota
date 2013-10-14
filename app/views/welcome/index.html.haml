@@ -3,12 +3,12 @@
     .span2
       %ul.nav.nav-list
         %li.active
-          %button.btn.wanted-dogs{type: "button"} #{t('sidebar.wanted_dogs')}
+          %button.btn.btn-primary.btn-block.wanted-dogs{type: "button"} #{t('sidebar.wanted_dogs')}
         %li
-          %button.btn.lost-dogs{type: "button"} #{t('sidebar.lost_dogs')}
+          %button.btn.btn-primary.btn-block.lost-dogs{type: "button"} #{t('sidebar.lost_dogs')}
         %li
-          %button.btn.adopt-dogs{type: "button"} #{t('sidebar.adopt_dogs')}
+          %button.btn.btn-primary.btn-block.adopt-dogs{type: "button"} #{t('sidebar.adopt_dogs')}
         %li
-          %button.btn.found-dogs{type: "button"} #{t('sidebar.found_dogs')}
+          %button.btn.btn-primary.btn-block.found-dogs{type: "button"} #{t('sidebar.found_dogs')}
     .span10
       = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true } } })
