@@ -42,6 +42,14 @@ es:
     remember_me: Recordarme
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
+  dog:
+    name: Nombre
+    age: Edad
+    breed: Raza
+    color: Color pelaje
+    owner: Dueño 
+    description: Descripción
+    image: Imagen
   helpers:
     actions: "Actions"
     links:
@@ -57,3 +65,8 @@ es:
       save: "Guardar %{model}"
       new: "Nuevo %{model}"
       delete: "Borrar %{model}"    
+  sidebar:
+    lost_dogs: Perros perdidos
+    wanted_dogs: Perros buscados
+    adopt_dogs: Perros en adopción
+    found_dogs: Perros encontrados      

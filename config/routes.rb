@@ -1,5 +1,6 @@
 Mimascota::Application.routes.draw do
-  resources :noticia
+  
+  resources :lost_dog, :noticia
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
