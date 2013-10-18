@@ -1,20 +1,20 @@
 = form_for :lostdog do |f|
   .row-fluid
-  .span4
+  .offset2.span7
     %div.well
       %div
         = f.label :name, "#{t('dog.name')}"
-        = f.text_field :name, :autofocus => true  
+        = f.text_field :name, :autofocus => true, class: "textField"
       %div
         = f.label :age, "#{t('dog.age')}"
-        = f.text_field :age
+        = f.text_field :age, class: "textField"
       %div
         = f.label :breed, "#{t('dog.breed')}"
-        = f.text_field :breed
+        = f.text_field :breed, class: "textField"
       %div
         = f.label :color, "#{t('dog.color')}"
-        = f.text_field :color
+        = f.text_field :color, class: "textField"
       %div
         = f.label :description, "#{t('dog.description')}"
-        = f.text_field :description
+        = f.text_area :description, class: "textareaForm"
       %div= f.submit "#{t('guardar')}" ,  class: "btn btn-primary"
