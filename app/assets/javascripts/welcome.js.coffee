@@ -18,7 +18,6 @@ load({controller: 'welcome', action: 'index'}, (controller, action) ->
 
 showLostDogs = () ->
   $('.btn.lost-dogs').click( (event) ->
-    debugger
     $.getJSON "welcome/lost_dogs_json", (data) ->
       Gmaps.map.replaceMarkers data
   )

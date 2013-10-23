@@ -1,5 +1,6 @@
 module Dog
   def self.included(base)
+    base.has_attached_file :image
     base.belongs_to :user    
     base.validates :name, presence: true
     base.validates :age, presence: true
@@ -16,4 +17,9 @@ module Dog
     #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
     "#{self.latitude}, #{self.longitude}"
   end
+
+  def gmaps4rails_infowindow
+    "<img src=\"#{self.image.url}\"> #{self.name}"
+  end  
+    
 end
