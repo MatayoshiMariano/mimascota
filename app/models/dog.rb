@@ -19,7 +19,7 @@ module Dog
   end
 
   def gmaps4rails_infowindow
-    "<img src=\"#{self.image.url}\"> #{self.name}"
+    "<img src=\"#{self.image.url}\">"
   end  
-    
+
 end
