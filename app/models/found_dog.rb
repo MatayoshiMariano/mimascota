@@ -6,7 +6,8 @@ class FoundDog < ActiveRecord::Base
     {
      "picture" => "assets/Map pins/Blue/6.png",
       "width" => 28,
-      "height" => 43     
+      "height" => 43,
+      "infowindow" => "hello!",
     }
   end
 end

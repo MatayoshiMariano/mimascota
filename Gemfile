@@ -43,6 +43,9 @@ gem 'loadjs'
 #The debugger
 gem "pry", "~> 0.9.12.2"
 
+#Image upload
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 gem 'lodash-rails'
 
 gem 'rb-readline', :require => false
