@@ -13,6 +13,11 @@ Mimascota::Application.routes.draw do
   get 'welcome/adopt_dogs_json' => 'welcome#adopt_dogs_json'
   get 'welcome/found_dogs_json' => 'welcome#found_dogs_json'
 
+  get 'lost_dog/description' => 'lost_dog#description'
+  get 'wanted_dog/description' => 'wanted_dog#description'
+  get 'adopton_dog/description' => 'adopton_dog#description'
+  get 'found_dog/description' => 'found_dog#description'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
