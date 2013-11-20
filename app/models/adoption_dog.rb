@@ -4,7 +4,7 @@ class AdoptionDog < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
     {
-     "picture" => "assets/Map pins/Green/6.png",
+     "picture" => ActionController::Base.helpers.asset_path('Map pins/Green/6.png'),
       "width" => 28,
       "height" => 43     
     }
