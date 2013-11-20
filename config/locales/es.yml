@@ -42,6 +42,11 @@ es:
     remember_me: Recordarme
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
+  dog:
+    name: Nombre
+    breed: Raza
+    description: Descripción
+    seen_on: Visto en
   helpers:
     actions: "Actions"
     links:
