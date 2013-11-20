@@ -1,5 +1,6 @@
 module Dog
   def self.included(base)
+    base.has_attached_file :image
     base.belongs_to :user    
     base.validates :name, presence: true
     base.validates :age, presence: true

@@ -11,51 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131006191837) do
+ActiveRecord::Schema.define(version: 20131023195344) do
 
   create_table "adoption_dogs", force: true do |t|
-    t.string  "name"
-    t.string  "age"
-    t.string  "breed"
-    t.string  "color"
-    t.integer "user_id"
-    t.text    "description"
-    t.string  "image"
-    t.float   "latitude"
-    t.float   "longitude"
-    t.boolean "gmaps"
+    t.string   "name"
+    t.string   "age"
+    t.string   "breed"
+    t.string   "color"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "adoption_dogs", ["user_id"], name: "index_adoption_dogs_on_user_id", using: :btree
 
   create_table "found_dogs", force: true do |t|
-    t.string  "name"
-    t.string  "age"
-    t.string  "breed"
-    t.string  "color"
-    t.integer "user_id"
-    t.text    "description"
-    t.string  "image"
-    t.float   "latitude"
-    t.float   "longitude"
-    t.boolean "gmaps"
+    t.string   "name"
+    t.string   "age"
+    t.string   "breed"
+    t.string   "color"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "found_dogs", ["user_id"], name: "index_found_dogs_on_user_id", using: :btree
 
   create_table "lost_dogs", force: true do |t|
-    t.string  "name"
-    t.string  "age"
-    t.string  "breed"
-    t.string  "color"
-    t.integer "user_id"
-    t.text    "description"
-    t.string  "image"
-    t.string  "last_seen_on"
-    t.date    "last_seen_time"
-    t.float   "latitude"
-    t.float   "longitude"
-    t.boolean "gmaps"
+    t.string   "name"
+    t.string   "age"
+    t.string   "breed"
+    t.string   "color"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.string   "last_seen_on"
+    t.date     "last_seen_time"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "lost_dogs", ["user_id"], name: "index_lost_dogs_on_user_id", using: :btree
@@ -86,6 +98,8 @@ ActiveRecord::Schema.define(version: 20131006191837) do
     t.string   "cellphone"
     t.string   "phone"
     t.string   "address"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -106,6 +120,10 @@ ActiveRecord::Schema.define(version: 20131006191837) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "wanted_dogs", ["user_id"], name: "index_wanted_dogs_on_user_id", using: :btree

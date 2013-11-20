@@ -1,0 +1,24 @@
+.container
+  .row-fluid
+    .span2
+      %p #{@dog.name}      
+    .span4
+      =image_tag "#{@dog.image}"
+  %hr
+  .row-fluid
+    .span12
+      %p #{t('dog.breed')}      
+      %p #{@dog.breed}
+  %hr
+  .row-fluid
+    .span12
+      %p #{t('dog.description')}
+      %p #{@dog.description}
+  %hr  
+  .row-fluid
+    .span12
+      %p #{t('dog.seen_on')}
+      = gmaps({"map_options" => {zoom: 10, "auto_zoom" => false}, "markers" => { "data" => @markers }} )
+  %hr
+
+

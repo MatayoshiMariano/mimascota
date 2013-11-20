@@ -70,6 +70,9 @@ class DevSeeds
 
 end
 
+User.delete_all
 WantedDog.delete_all
 LostDog.delete_all
+AdoptionDog.delete_all
+FoundDog.delete_all
 DevSeeds.new.seed

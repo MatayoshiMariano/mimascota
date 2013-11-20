@@ -3,22 +3,10 @@ load({controller: 'welcome', action: 'index'}, (controller, action) ->
   showWantedDogs()
   showAdoptDogs()
   showFoundDogs()
-  # Gmaps.map.callback = () ->
-  #   markers = Gmaps.map.markers
-  #   $.each(markers, (index, marker)->
-  #     marker.serviceObject.setVisible(false)
-  #   )
-
-  # Gmaps.map.callback = () ->
-  #    Gmaps.map.createMarker({
-  #       Lat: -30.612
-  #       Lng: -50.312
-  #    });    
 )
 
 showLostDogs = () ->
   $('.btn.lost-dogs').click( (event) ->
-    debugger
     $.getJSON "welcome/lost_dogs_json", (data) ->
       Gmaps.map.replaceMarkers data
   )

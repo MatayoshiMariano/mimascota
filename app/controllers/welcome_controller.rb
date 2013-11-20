@@ -1,36 +1,34 @@
 class WelcomeController < ApplicationController
 	def index
     @json = WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
+    marker.infowindow render_to_string(partial: "info_window", locals: {controller: 'wanted_dog', object: wanted_dog})
       marker.json({ category: 'WantedDog'})
     end
 	end
 
   def lost_dogs_json
-    @json_lost_dogs = LostDog.all.to_gmaps4rails do |lost_dog, marker|
-      marker.json({ category: 'LostDog'})
-    end
-    render json: @json_lost_dogs
+    dog_json(LostDog, 'LostDog', 'lost_dog')
   end
 
   def wanted_dogs_json
-    @json_wanted_dogs = WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
-      marker.json({ category: 'WantedDog'})
-    end
-    render json: @json_wanted_dogs    
+    dog_json(WantedDog, 'WantedDog', 'wanted_dog')
   end
 
   def adopt_dogs_json
-    @json_adopt_dogs = AdoptionDog.all.to_gmaps4rails do |adoption_dog, marker|
-      marker.json({ category: 'AdoptDogs'})
-    end
-    render json: @json_adopt_dogs    
+    dog_json(AdoptionDog, 'AdoptDogs', 'adoption_dog')
   end
 
   def found_dogs_json
-    @json_found_dogs = FoundDog.all.to_gmaps4rails do |found_dog, marker|
-      marker.json({ category: 'FoundDogs'})
+    dog_json(FoundDog, 'FoundDogs', 'found_dog')
+  end
+
+private
+  def dog_json(dogType, category, controller)
+    dogs = dogType.all.to_gmaps4rails do |dog, marker|
+      marker.infowindow render_to_string(partial: "info_window", locals: {controller: controller, object: dog})
+      marker.json({ category: category})
     end
-    render json: @json_found_dogs    
+    render json: dogs        
   end
 
 end
