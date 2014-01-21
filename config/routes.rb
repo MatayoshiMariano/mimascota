@@ -1,4 +1,8 @@
 Mimascota::Application.routes.draw do
+  resources :prueba3s
+
+  resources :pruebas
+
   resources :noticia
 
   devise_for :users
