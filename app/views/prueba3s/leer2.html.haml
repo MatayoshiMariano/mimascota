@@ -1,0 +1,9 @@
+%h2 Por favor ingrese el código del usuario
+= form_tag({:controller => "prueba3s", :action => "leer"}, :method => "post") do
+  = label_tag "código", "Código de usuario"
+  = text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :placeholder => "codigo", :required => "required"
+  %br/
+  = submit_tag "Enviar"
+
+
+= @var

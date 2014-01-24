@@ -1,5 +1,6 @@
 class Prueba3sController < ApplicationController
   before_action :set_prueba3, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery :only => [:create, :update, :destroy]
 
   # GET /prueba3s
   # GET /prueba3s.json
@@ -10,6 +11,32 @@ class Prueba3sController < ApplicationController
   # GET /prueba3s/1
   # GET /prueba3s/1.json
   def show
+  end
+
+  def hello
+   # ActiveSupport::JSON.encode({ team: 'rails', players: '36' })
+    aux = "prueba3nombre3"
+   #aux = ActiveSupport::JSON.encode({ team: 'rails', players: '36' })
+    @prueba3 = Prueba3.new(:nombre => aux)
+
+    respond_to do |format|
+      format.json { render :json => @prueba3 }
+      format.xml { render xml: @prueba3 }
+      format.html
+    end   
+
+   #render layout: false
+  end
+
+
+  def leer
+    @var= params[:jsonstring]
+    @var= ActiveSupport::JSON.decode(@var)
+    prueba3 = Prueba3.new(@var)
+    
+  #  @var= params[:nombre]
+  #  prueba3 = Prueba3.new(:nombre => @var)
+    prueba3.save
   end
 
   # GET /prueba3s/new
@@ -71,4 +98,5 @@ class Prueba3sController < ApplicationController
     def prueba3_params
       params.require(:prueba3).permit(:nombre)
     end
+
 end

@@ -1,7 +1,4 @@
 Mimascota::Application.routes.draw do
-  resources :prueba3s
-
-  resources :pruebas
 
   resources :noticia
 
@@ -12,10 +9,15 @@ Mimascota::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'welcome#index'
 
+  get 'prueba3s/hello/:nombre', to: 'prueba3s#hello'
+  #get 'prueba3s/leer'
+  post 'prueba3s/leer'
+  resources :prueba3s
   get 'welcome/lost_dogs_json' => 'welcome#lost_dogs_json'
   get 'welcome/wanted_dogs_json' => 'welcome#wanted_dogs_json'
   get 'welcome/adopt_dogs_json' => 'welcome#adopt_dogs_json'
   get 'welcome/found_dogs_json' => 'welcome#found_dogs_json'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
