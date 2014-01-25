@@ -1,4 +1,6 @@
+
 class LostDogController < ApplicationController
+   include Gmaps4rails::ActsAsGmappable
   # TODO hecho para salvar error en pruebas
   def authenticate
   end
@@ -14,7 +16,7 @@ class LostDogController < ApplicationController
 
   # GET /lost_dog/new
   def new
-    @lostdog = LostDog.new
+    @lostdog = LostDog.new    
   end
 
   # GET /lost_dog/1/edit
@@ -26,9 +28,16 @@ class LostDogController < ApplicationController
     @lostdog = LostDog.new(lostdog_params)
 
     respond_to do |format|
+
+      coords = Gmaps4rails.geocode(params[:address])
+      @lostdog.latitude = coords[0][:lat]
+      @lostdog.longitude = coords[0][:lng]
+      @lostdog.user = current_user
       if @lostdog.save
         format.html { redirect_to @lostdog, notice: 'LostDog was successfully created.' }
       else
+        Rails.logger.error(current_user)        
+        Rails.logger.error(@lostdog.errors.full_messages.join('\n'))        
         format.html { render action: 'new' }
       end
     end
@@ -61,6 +70,13 @@ class LostDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostdog_params
-      params.require(:LostDog).permit(:title, :content)
+      params.require(:lostdog).permit(:name, :age, :breed, :color, :description, :address)
     end
+
+  def description
+    @dog = LostDog.find params[:id]
+    @markers = @dog.to_gmaps4rails
+    render :template => 'shared/dog_description'
+  end
+
 end

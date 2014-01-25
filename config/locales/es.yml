@@ -50,6 +50,7 @@ es:
     owner: Dueño 
     description: Descripción
     image: Imagen
+    seen_on: Visto en
   helpers:
     actions: "Actions"
     links:

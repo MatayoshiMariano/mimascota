@@ -8,6 +8,7 @@ class DevSeeds
   end
 
   def seed
+    seed_user
     seed_disappeared_dogs(LostDog)
     seed_disappeared_dogs(WantedDog)   
     seed_non_disappeared_dogs(AdoptionDog)
@@ -15,11 +16,16 @@ class DevSeeds
   end
 
   private
+
+    def seed_user
+      User.create!(email: "test@server.com", password: "123123123", password_confirmation: "123123123")
+    end
+
     def seed_disappeared_dogs(dogType)
       @@dogs_count.times do |i|
         dogType.create!(name: Faker::Name.first_name, age: Faker::Number.digit, breed: random_breed,
           color: 'black', user: random_user, description: Faker::Lorem.paragraphs(rand(2..8)).join('\n'),
-          image: get_dog_image, latitude: random_latitude, longitude: random_longitud)
+          image: get_dog_image, latitude: random_latitude, longitude: random_longitud, gmaps: true)
       end      
     end
 
@@ -27,7 +33,7 @@ class DevSeeds
       @@dogs_count.times do |i|
         dogType.create!(name: Faker::Name.first_name, age: Faker::Number.digit, breed: random_breed,
           color: 'black', user: random_user, description: Faker::Lorem.paragraphs(rand(2..8)).join('\n'),
-          image: get_dog_image, latitude: random_latitude, longitude: random_longitud)
+          image: get_dog_image, latitude: random_latitude, longitude: random_longitud, gmaps: true)
       end            
     end
 
@@ -64,6 +70,9 @@ class DevSeeds
 
 end
 
+User.delete_all
 WantedDog.delete_all
 LostDog.delete_all
+AdoptionDog.delete_all
+FoundDog.delete_all
 DevSeeds.new.seed

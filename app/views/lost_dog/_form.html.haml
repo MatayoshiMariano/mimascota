@@ -17,4 +17,7 @@
       %div
         = f.label :description, "#{t('dog.description')}"
         = f.text_area :description, class: "textareaForm"
+      %div
+        = label_tag "Direccion"
+        = text_field_tag "address", ""
       %div= f.submit "#{t('guardar')}" ,  class: "btn btn-primary"

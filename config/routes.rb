@@ -6,7 +6,7 @@ Mimascota::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
+  # You can have the  root of your site routed with "root"
   root to: 'welcome#index'
 
   get 'welcome/lost_dogs_json' => 'welcome#lost_dogs_json'
@@ -14,6 +14,12 @@ Mimascota::Application.routes.draw do
   get 'welcome/adopt_dogs_json' => 'welcome#adopt_dogs_json'
   get 'welcome/found_dogs_json' => 'welcome#found_dogs_json'
 
+  get 'lost_dog/description/:id' => 'lost_dog#description'
+  get 'wanted_dog/description/:id' => 'wanted_dog#description'
+  get 'adopton_dog/description/:id' => 'adopton_dog#description'
+  get 'found_dog/description/:id' => 'found_dog#description'
+
+  post 'lost_dog/new' => 'lost_dog#create'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
