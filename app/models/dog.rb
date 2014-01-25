@@ -1,15 +1,15 @@
 module Dog
   def self.included(base)
     base.belongs_to :user    
-    base.validates :name, presence: true
-    base.validates :age, presence: true
-    base.validates :breed, presence: true
-    base.validates :color, presence: true
-    base.validates :user, presence: true
-    base.validates :description, presence: true
-    base.validates :image, presence: true
-    base.validates :latitude, presence: true
-    base.validates :longitude, presence: true
+  #  base.validates :name, presence: true
+  #  base.validates :age, presence: true
+  #  base.validates :breed, presence: true
+  #  base.validates :color, presence: true
+  #  base.validates :user, presence: true
+  #  base.validates :description, presence: true
+  #  base.validates :image, presence: true
+  #  base.validates :latitude, presence: true
+  #  base.validates :longitude, presence: true
   end 
 
   def gmaps4rails_address

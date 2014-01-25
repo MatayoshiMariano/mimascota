@@ -1,5 +1,9 @@
 Mimascota::Application.routes.draw do
 
+  get "cargador/subirPrueba3s"
+  get "cargador/ejemploJson"
+  get "cargador/subirPerroEncontrado"
+  post "cargador/subirPerroEncontrado"
   resources :noticia
 
   devise_for :users
@@ -9,6 +13,8 @@ Mimascota::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'welcome#index'
 
+  get 'observador/perrosEncontrados'
+  delete "observador/perrosEncontrados" => "observador#destroyPerroEncontrado"
   get 'prueba3s/hello/:nombre', to: 'prueba3s#hello'
   #get 'prueba3s/leer'
   post 'prueba3s/leer'
