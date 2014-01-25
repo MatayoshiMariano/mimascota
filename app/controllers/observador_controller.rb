@@ -4,8 +4,4 @@ class ObservadorController < ApplicationController
   	@perros = FoundDog.all
   end
 
-  def destroyPerroEncontrado
-    @perro.destroy
-    redirect_to observador_perrosEncontrados_path
-  end
 end
