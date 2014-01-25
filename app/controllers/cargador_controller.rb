@@ -4,11 +4,7 @@ class CargadorController < ApplicationController
   def ejemploJson
     @prueba = FoundDog.new(:name => "hjolaFoundDog3", :latitude => "-25.4198", :longitude => "-40.3012", :gmaps => true)
 
-    respond_to do |format|
-      format.json { render :json => @prueba }
-      format.xml { render xml: @prueba }
-      format.html
-    end
+    render :json => @prueba    
   end
 
   def subirPerroEncontrado
@@ -41,14 +37,4 @@ class CargadorController < ApplicationController
 	render :nothing => true
   end
 
-  def subirPrueba3s
-    prueba = Prueba3.new(:nombre => "asdhola")
-    @errores= ""
-
-    if !prueba.save
-    	@errores= prueba.errors.full_messages
-    	logger.error @errores
-    end
-
-  end
 end

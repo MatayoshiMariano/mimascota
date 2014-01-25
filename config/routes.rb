@@ -1,6 +1,5 @@
 Mimascota::Application.routes.draw do
 
-  get "cargador/subirPrueba3s"
   get "cargador/ejemploJson"
   get "cargador/testSubirPerroEncontrado"
   get "cargador/subirPerroEncontrado"
@@ -15,10 +14,7 @@ Mimascota::Application.routes.draw do
   root to: 'welcome#index'
 
   get 'observador/perrosEncontrados'
-   get 'prueba3s/hello/:nombre', to: 'prueba3s#hello'
-  #get 'prueba3s/leer'
-  post 'prueba3s/leer'
-  resources :prueba3s
+
   get 'welcome/lost_dogs_json' => 'welcome#lost_dogs_json'
   get 'welcome/wanted_dogs_json' => 'welcome#wanted_dogs_json'
   get 'welcome/adopt_dogs_json' => 'welcome#adopt_dogs_json'
