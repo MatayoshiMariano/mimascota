@@ -13,9 +13,11 @@
         = @lostdog.breed
       %p
         %b #{t('dog.color')}:
-        = @lostdog.color
+        @lostdog.color
       %p
         %b #{t('dog.description')}:
         = @lostdog.description
+      %p
+        = image_tag @lostdog.image.url
 
-      = link_to "#{t('atras')}", lost_dog_index_path
+      = link_to "#{t('dog.lost_dog_list')}", lost_dog_index_path

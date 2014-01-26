@@ -37,7 +37,7 @@ class LostDogController < ApplicationController
 
       if @lostdog.save
         format.html { redirect_to @lostdog, notice: 'La publicación de su mascota perdida
-         ha sido exitosa. Deseamos que la recupere pronto.' }
+           ha sido exitosa. Deseamos que la recupere pronto.' }
       else
         Rails.logger.error(current_user)        
         Rails.logger.error(@lostdog.errors.full_messages.join('\n'))        
@@ -73,7 +73,7 @@ class LostDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostdog_params
-      params.require(:lostdog).permit(:name, :age, :breed, :color, :description, :address)
+      params.require(:lostdog).permit(:name, :age, :breed, :color, :description, :address, :image)
     end
 
   def description
