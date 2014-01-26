@@ -43,7 +43,7 @@ es:
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
   dog:
-    lost_dog_list: Listado de perros perdidos
+    lost_dog_list: Perros perdidos
     name: Nombre
     age: Edad
     breed: Raza

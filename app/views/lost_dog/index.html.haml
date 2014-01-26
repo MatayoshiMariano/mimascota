@@ -1,25 +1,27 @@
 %h1 #{t('dog.lost_dog_list')}
 
 .row-fluid
-  .table-responsive
-    %table.table
-      %tr
-        %th #{t('dog.name')}
-        %th #{t('dog.age')}
-        %th #{t('dog.breed')}
-        %th #{t('dog.owner')}
-        %th #{t('dog.description')}
-        %th
-        %th
-      -@lostdogs.each do |lostdog|
-        %tr
-          %td= lostdog.name
-          %td= lostdog.age
-          %td= lostdog.breed
-          %td= lostdog.user.fullname
-          %td= lostdog.description
-          %td= link_to "#{t('mostrar')}", lostdog
-          %td= link_to "#{t('destruir')}", lostdog, :method => :delete, :data => { :confirm => "#{t('esta_seguro?')}" }
+  .span12
+    -@lostdogs.each do |lostdog|  
+      .media
+        .pull-left
+          .media-object
+            %img{src: lostdog.image.url }
+        .media-body
+          %h4= lostdog.name
+          %p
+            %b #{t('dog.age')}:
+            = lostdog.age
+          %p
+            %b #{t('dog.breed')}:
+            = lostdog.breed
+          %p
+            %b #{t('dog.color')}:
+            = lostdog.color
+          %p
+            %b #{t('dog.description')}:
+            = lostdog.description
 
-
-= link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path
+.row-fluid
+  .span12
+    = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary btn-block lost-dogs"
