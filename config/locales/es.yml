@@ -43,6 +43,7 @@ es:
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
   dog:
+    lost_dog_list: Listado de perros perdidos
     name: Nombre
     age: Edad
     breed: Raza
@@ -71,3 +72,5 @@ es:
     wanted_dogs: Perros buscados
     adopt_dogs: Perros en adopción
     found_dogs: Perros encontrados      
+  welcome: 
+    new_lostdog_button: Publicar mascota perdida

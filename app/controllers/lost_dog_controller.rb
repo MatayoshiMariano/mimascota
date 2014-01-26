@@ -7,11 +7,12 @@ class LostDogController < ApplicationController
 
   # GET /lost_dog
   def index
-    @lostdog = LostDog.all
+    @lostdogs = LostDog.all
   end
 
   # GET /lost_dog/1
   def show
+    @lostdog = LostDog.find(params[:id])
   end
 
   # GET /lost_dog/new
@@ -33,8 +34,10 @@ class LostDogController < ApplicationController
       @lostdog.latitude = coords[0][:lat]
       @lostdog.longitude = coords[0][:lng]
       @lostdog.user = current_user
+
       if @lostdog.save
-        format.html { redirect_to @lostdog, notice: 'LostDog was successfully created.' }
+        format.html { redirect_to @lostdog, notice: 'La publicación de su mascota perdida
+         ha sido exitosa. Deseamos que la recupere pronto.' }
       else
         Rails.logger.error(current_user)        
         Rails.logger.error(@lostdog.errors.full_messages.join('\n'))        

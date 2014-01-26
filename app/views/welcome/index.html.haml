@@ -14,4 +14,4 @@
       = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true } } })
   .row-fluid
     .span12.offset2
-      = link_to "#{t('sidebar.lost_dogs')}", new_lost_dog_path, class: "btn btn-primary"
+      = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary"
