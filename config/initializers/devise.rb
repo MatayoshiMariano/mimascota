@@ -235,7 +235,7 @@ Devise.setup do |config|
 
   require "omniauth-facebook"
   fb = AppConfiguration.for :facebook
-  config.omniauth :facebook, fb.app_id, fb.app_secret
+  config.omniauth :facebook, fb.app_id, fb.app_secret, {:scope => fb.permissions}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

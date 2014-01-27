@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  validates :first_name, :last_name, :birthday, presence: true
+
 	def fullname
 		self.first_name + ' ' + self.last_name
 	end
@@ -17,6 +19,9 @@ class User < ActiveRecord::Base
       user = User.where(email: auth.info.email).first
       if user.nil?
         user = User.create!(name:auth.extra.raw_info.name,
+                            first_name:auth.extra.raw_info.first_name,
+                            last_name:auth.extra.raw_info.last_name,
+                            birthday: Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y"),
                             provider:auth.provider,
                             uid:auth.uid,
                             email:auth.info.email,
