@@ -2,7 +2,7 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
 
 	before_filter :authenticate_user!
   
-  def require_params
+  def sign_up_params
   	 params.require(:user).permit( :email, :password, :password_confirmation, :first_name, :last_name, 
   	 	:birthday, :phone, :cellphone)
   end
@@ -14,4 +14,5 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
 	    Devise::BaseSanitizer.new(resource_class, resource_name, params)
 	  end
 	end
+
 end
