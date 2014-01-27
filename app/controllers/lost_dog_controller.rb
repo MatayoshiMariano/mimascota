@@ -65,6 +65,13 @@ class LostDogController < ApplicationController
     end
   end
 
+  def description
+    @dog = LostDog.find params[:id]
+    @markers = @dog.to_gmaps4rails
+    render :template => 'shared/dog_description'
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lostdog
@@ -75,11 +82,5 @@ class LostDogController < ApplicationController
     def lostdog_params
       params.require(:lostdog).permit(:name, :age, :breed, :color, :description, :address, :image)
     end
-
-  def description
-    @dog = LostDog.find params[:id]
-    @markers = @dog.to_gmaps4rails
-    render :template => 'shared/dog_description'
-  end
-
+    
 end
