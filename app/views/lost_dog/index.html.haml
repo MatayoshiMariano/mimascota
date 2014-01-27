@@ -1,7 +1,7 @@
 %h1 #{t('dog.lost_dog_list')}
 
 .row-fluid
-  .span12
+  .span10
     -@lostdogs.each do |lostdog|  
       .media
         .pull-left
@@ -22,6 +22,5 @@
             %b #{t('dog.description')}:
             = lostdog.description
 
-.row-fluid
-  .span12
-    = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary btn-block lost-dogs"
+  .span2
+    = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary btn-block lost-dogs", style: "color: white;"

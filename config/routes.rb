@@ -1,5 +1,11 @@
 Mimascota::Application.routes.draw do
   
+  
+
+  get "cargador/ejemploJson"
+  get "cargador/testSubirPerroEncontrado"
+  get "cargador/subirPerroEncontrado"
+  post "cargador/subirPerroEncontrado"
   resources :lost_dog, :noticia
 
   devise_for :users
@@ -8,6 +14,8 @@ Mimascota::Application.routes.draw do
 
   # You can have the  root of your site routed with "root"
   root to: 'welcome#index'
+
+  get 'observador/perrosEncontrados'
 
   get 'welcome/lost_dogs_json' => 'welcome#lost_dogs_json'
   get 'welcome/wanted_dogs_json' => 'welcome#wanted_dogs_json'
@@ -20,6 +28,8 @@ Mimascota::Application.routes.draw do
   get 'found_dog/description/:id' => 'found_dog#description'
 
   post 'lost_dog/new' => 'lost_dog#create'
+  resources :found_dog
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
