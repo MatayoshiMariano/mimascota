@@ -1,16 +1,18 @@
 Mimascota::Application.routes.draw do
+  
+  
 
   get "cargador/ejemploJson"
   get "cargador/testSubirPerroEncontrado"
   get "cargador/subirPerroEncontrado"
   post "cargador/subirPerroEncontrado"
-  resources :noticia
+  resources :lost_dog, :noticia
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
+  # You can have the  root of your site routed with "root"
   root to: 'welcome#index'
 
   get 'observador/perrosEncontrados'
@@ -25,6 +27,7 @@ Mimascota::Application.routes.draw do
   get 'adopton_dog/description/:id' => 'adopton_dog#description'
   get 'found_dog/description/:id' => 'found_dog#description'
 
+  post 'lost_dog/new' => 'lost_dog#create'
   resources :found_dog
 
   # Example of regular route:

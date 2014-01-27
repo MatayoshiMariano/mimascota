@@ -43,9 +43,14 @@ es:
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
   dog:
+    lost_dog_list: Perros perdidos
     name: Nombre
+    age: Edad
     breed: Raza
+    color: Color pelaje
+    owner: Dueño 
     description: Descripción
+    image: Imagen
     seen_on: Visto en
   helpers:
     actions: "Actions"
@@ -62,3 +67,10 @@ es:
       save: "Guardar %{model}"
       new: "Nuevo %{model}"
       delete: "Borrar %{model}"    
+  sidebar:
+    lost_dogs: Perros perdidos
+    wanted_dogs: Perros buscados
+    adopt_dogs: Perros en adopción
+    found_dogs: Perros encontrados      
+  welcome: 
+    new_lostdog_button: Publicar mascota perdida

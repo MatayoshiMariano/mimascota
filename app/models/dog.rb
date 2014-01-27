@@ -3,12 +3,12 @@ module Dog
     base.has_attached_file :image
     base.belongs_to :user    
     base.validates :name, presence: true
-  #  base.validates :age, presence: true
-  #  base.validates :breed, presence: true
-  #  base.validates :color, presence: true
-  #  base.validates :user, presence: true
-  #  base.validates :description, presence: true
-  #  base.validates :image, presence: true
+    base.validates :age, presence: true
+    base.validates :breed, presence: true
+    base.validates :color, presence: true
+    base.validates :user, presence: true
+    base.validates :description, presence: true
+    base.validates :image, presence: false
     base.validates :latitude, presence: true
     base.validates :longitude, presence: true
   end 
