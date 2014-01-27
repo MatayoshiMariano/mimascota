@@ -6,7 +6,6 @@ Mimascota::Application.routes.draw do
   post "cargador/subirPerroEncontrado"
   resources :noticia
 
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -26,6 +25,11 @@ Mimascota::Application.routes.draw do
   get 'found_dog/description/:id' => 'found_dog#description'
 
   resources :found_dog
+
+  devise_for :users, :controllers => {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'devise_overrides/registrations'
+  }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
