@@ -1,4 +1,39 @@
 es:
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        first_name: Nombre
+        last_name: Apellido
+        password: Contraseña
+        birthday: Fecha de nacimiento
+        created_at: Creado
+        updated_at: Actualizado
+        password_confirmation: Confirmación de contraseña
+        name: Nombre
+        cellphone: Número de celular
+    errors:
+     models:
+        user:
+          attributes:
+            email:
+              blank: "El campo Correo electrónico no debe estar vacío"
+              taken: "El correo electrónico ya se encuentra registrado o ya se ha registrado con Facebook"
+            first_name:
+              blank: "El campo Nombre no debe estar vacío"
+            last_name:
+              blank: "El campo Apellido no debe estar vacío"
+            birthday:
+              blank: "El campo Fecha de nacimiento no debe estar vacío"                            
+            password_confirmation:
+              confirmation: Las contraseñas no coinciden
+              blank: "El campo Confirmación de constraseña no debe estar vacío"
+            password:
+              too_short: "La constraseña muy corta, debe ser de al menos 8 caracteres"
+              blank: "El campo Constraseña no debe estar vacío"
+            cellphone:
+              blank: "El campo Número de celular no debe estar vacío"
+
   back: Volver
   update: Actualizar
   atras: Atrás
@@ -74,3 +109,6 @@ es:
     found_dogs: Perros encontrados      
   welcome: 
     new_lostdog_button: Publicar mascota perdida
+
+  errors:
+   format: "%{message}"
