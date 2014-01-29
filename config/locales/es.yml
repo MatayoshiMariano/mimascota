@@ -1,4 +1,7 @@
 es:
+  users:
+    sign_up:
+      also_fb: "Tambien se puede registrar vía facebook"
   activerecord:
     attributes:
       user:
