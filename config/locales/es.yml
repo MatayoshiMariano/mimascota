@@ -58,6 +58,7 @@ es:
     sign_out: Cerrar sesión
     home: Inicio
     profile: Perfil
+    app: Mi mascota
   user:
     first_name: Nombre
     last_name: Apellido

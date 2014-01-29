@@ -3,8 +3,9 @@
   %div.navbar.navbar-fixed-top.navbar-inverse
     %div.navbar-inner
       %div.container
-        %img.logo{:src => "http://www.hdwallpapersfan.com/wp-content/uploads/2013/03/Happy-Dog-Pictures-3.jpg"}
-        %a.brand Mi Mascota
+        %img.logo{:src => "http://www.hdwallpapersfan.com/wp-content/uploads/2013/03/Happy-Dog-Pictures-3.jpg"}      
+        .brand
+          = link_to "#{t('navbar.app')}", root_path, 'data-no-turbolink' => true, class: "link-to"
         %ul.nav
           %li.home= link_to "#{t('navbar.home')}", root_path, 'data-no-turbolink' => true
           - if !user_signed_in?
