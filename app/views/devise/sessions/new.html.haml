@@ -2,19 +2,30 @@
   %h3 Iniciar sesión
   .row-fluid
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      .span4
-        %br/
-        = f.label :email, "#{t('user.email')}"
-        = f.email_field :email, :autofocus => true
-        = f.label :password, "#{t('user.password')}"
-        = f.password_field :password
-        - if devise_mapping.rememberable?
-          = f.label :remember_me, :class => "checkbox" do
-            = f.check_box :remember_me
-            = f.label :remember_me, "#{t('user.remember_me')}"
-        = render "devise/shared/links"
-        - User.omniauth_providers.each do |provider|
-          = link_to image_tag('facebook_connect.png'), omniauth_authorize_path(:user, provider), class: 'fb-connect'        
-        %br/
-        %br/
-        = f.submit  "#{t('user.sign_in_title')}",  class: "btn btn-primary"
+      .row-fluid
+        %p.mimascota-font-sub-title #{t('users.sign_in.also_fb')}
+        .row-fluid.sign-up-inputs
+          .offset4.span4.facebook-div
+            - User.omniauth_providers.each do |provider|
+              = link_to image_tag('facebook_connect.png'), omniauth_authorize_path(:user, provider), class: 'fb-connect'
+        %div
+          .row-fluid.sign-up-inputs
+            .offset4.span4
+              = f.label :email, "#{t('user.email')}"
+              = f.email_field :email, :autofocus => true
+          .row-fluid.sign-up-inputs
+            .offset4.span4
+              = f.label :password, "#{t('user.password')}"
+              = f.password_field :password
+          .row-fluid.sign-up-inputs
+            .offset4.span1
+              - if devise_mapping.rememberable?
+                = f.label :remember_me, :class => "checkbox" do
+                  = f.check_box :remember_me
+                  = f.label :remember_me, "#{t('user.remember_me')}"
+          .row-fluid.sign-up-inputs
+            .offset4.span4.facebook-div
+              = render "devise/shared/links"
+          .row-fluid.sign-up-inputs
+            .offset4.span4
+              = f.submit  "#{t('user.sign_in_title')}",  class: "btn btn-primary"

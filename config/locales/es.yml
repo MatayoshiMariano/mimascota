@@ -1,7 +1,9 @@
 es:
   users:
     sign_up:
-      also_fb: "Tambien se puede registrar vía facebook"
+      also_fb: "También se puede registrar vía facebook"
+    sign_in:
+      also_fb: "También se puede iniciar sesión vía facebook"
   activerecord:
     attributes:
       user:
