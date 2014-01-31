@@ -18,7 +18,7 @@
   %hr  
   .row-fluid
     .span12
-      %p#{t('dog.seen_on')}
+      %p #{t('dog.seen_on')}
       = gmaps({"map_options" => {zoom: 10, "auto_zoom" => false}, "markers" => { "data" => @markers }} )
   %hr
 

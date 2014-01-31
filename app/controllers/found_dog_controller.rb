@@ -1,5 +1,5 @@
 class FoundDogController < ApplicationController
-  before_action :set_found_dog
+  before_action :set_found_dog, only: [:destroy]
 
   def description
     @dog = FoundDog.find params[:id]

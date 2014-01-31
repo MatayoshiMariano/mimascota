@@ -18,7 +18,7 @@ class DevSeeds
   private
 
     def seed_user
-      User.create!(email: "test@server.com", password: "123123123", password_confirmation: "123123123")
+      User.create!(first_name: "MiNombre", last_name: "miApellido", birthday: "10/10/1990", email: "test@server.com", password: "123123123", password_confirmation: "123123123")
     end
 
     def seed_disappeared_dogs(dogType)
