@@ -1,0 +1,16 @@
+%h1 Observando a los Perros Usuarios
+
+%table
+  %tr
+    %th Id
+    %th Nombre
+    %th Apellido
+    %th Fecha Nacimiento
+
+  - @usuarios.each do |usuario|
+    %tr
+      %td= usuario.id
+      %td= usuario.first_name
+      %td= usuario.last_name
+      %td= usuario.birthday
+%br

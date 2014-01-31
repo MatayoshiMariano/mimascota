@@ -1,9 +1,17 @@
 
 class LostDogController < ApplicationController
    include Gmaps4rails::ActsAsGmappable
+   before_action :set_lostdog, only: [:destroy]
+
   # TODO hecho para salvar error en pruebas
   def authenticate
   end
+
+  def description
+    @dog = LostDog.find params[:id]
+    @markers = @dog.to_gmaps4rails
+    render :template => 'shared/dog_description'
+  end 
 
   # GET /lost_dog
   def index
@@ -61,7 +69,7 @@ class LostDogController < ApplicationController
   def destroy
     @lostdog.destroy
     respond_to do |format|
-      format.html { redirect_to lost_dog_url }
+      format.html { redirect_to lost_dog_index_path }
     end
   end
 
