@@ -3,23 +3,23 @@
   %div.well
     %p
       %b #{t('dog.name')}:
-      = @lostdog.name
+      = @dog.name
     %p
       %b #{t('dog.age')}:
-      = @lostdog.age
+      = @dog.age
     %p
       %b #{t('dog.breed')}:
-      = @lostdog.breed
+      = @dog.breed
     %p
       %b #{t('dog.color')}:
-      = @lostdog.color
+      = @dog.color
     %p
       %b #{t('dog.description')}:
-      = @lostdog.description
+      = @dog.description
     %p
-      = image_tag @lostdog.image.url
+      = image_tag @dog.image.url
 
     %p #{t('dog.seen_on')}
     = gmaps({"map_options" => {zoom: 10, "auto_zoom" => false}, "markers" => { "data" => @markers }} )
 
-    = link_to "#{t('dog.lost_dog_list')}", lost_dog_index_path, class: "btn btn-primary"
+    = link_to "#{t('dog.wanted_dogs')}", wanted_dog_index_path, class: "btn btn-primary"

@@ -21,6 +21,7 @@ class LostDogController < ApplicationController
   # GET /lost_dog/1
   def show
     @lostdog = LostDog.find(params[:id])
+    @markers = @lostdog.to_gmaps4rails
   end
 
   # GET /lost_dog/new
