@@ -6,7 +6,7 @@ Mimascota::Application.routes.draw do
   get "cargador/testSubirPerroEncontrado"
   #get "cargador/subirPerroEncontrado"
   post "cargador/subirPerroEncontrado"
-  resources :lost_dog, :noticia
+  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
