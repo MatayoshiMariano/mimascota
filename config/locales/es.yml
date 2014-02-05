@@ -114,7 +114,19 @@ es:
     adopt_dogs: Perros en adopción
     found_dogs: Perros encontrados      
   welcome: 
-    new_lostdog_button: Publicar mascota perdida
-
+    new_lostdog_button: Publicar mascota buscada
+    new_wanted_button: Publicar mascota perdida 
   errors:
    format: "%{message}"
+  activerecord:
+    models:
+      lost_dog: "Perro"
+    attributes:
+      lost_dog:
+        name: "Nombre"        
+        user: "Dueño"
+        age: "Edad"
+        breed: "Raza"
+        color: "Color pelaje"
+        description: "Descripción"
+        image: "Imagen"

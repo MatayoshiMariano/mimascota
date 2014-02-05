@@ -12,7 +12,9 @@
           %button.btn.btn-primary.btn-block.found-dogs{type: "button"} #{t('sidebar.found_dogs')}
     .span10
       = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true } } })
-  -if current_user
-    .row-fluid
-      .span12.offset2
-        = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary", style: "color: white;"
+
+    -if signed_in?
+      .row-fluid
+        .span12.offset2
+          = link_to "#{t('welcome.new_lostdog_button')}", new_wanted_dog_path, class: "btn btn-primary lost_dogs", style: "color: white;"
+          = link_to "#{t('welcome.new_wanted_button')}", new_lost_dog_path, class: "btn btn-primary wanted_dogs", style: "color: white;"

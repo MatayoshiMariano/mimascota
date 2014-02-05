@@ -1,6 +1,6 @@
 class LostDog < ActiveRecord::Base
   include Dog
-  acts_as_gmappable
+  acts_as_gmappable :msg => "Debes ingresar una dirección."
 
   def gmaps4rails_marker_picture
     {

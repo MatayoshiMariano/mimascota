@@ -1,0 +1,26 @@
+%h1 #{t('dog.wanted_dog_list')}
+
+.row-fluid
+  .span10
+    -@wanted_dogs.each do |wanted_dog|  
+      .media
+        .pull-left
+          .media-object
+            %img{src: wanted_dog.image.url }
+        .media-body
+          %h4= wanted_dog.name
+          %p
+            %b #{t('dog.age')}:
+            = wanted_dog.age
+          %p
+            %b #{t('dog.breed')}:
+            = wanted_dog.breed
+          %p
+            %b #{t('dog.color')}:
+            = wanted_dog.color
+          %p
+            %b #{t('dog.description')}:
+            = wanted_dog.description
+
+  .span2
+    = link_to "#{t('welcome.new_wanted_dog_button')}", new_wanted_dog_path, class: "btn btn-primary btn-block lost-dogs", style: "color: white;"

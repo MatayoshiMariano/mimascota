@@ -1,13 +1,13 @@
 = form_for :lostdog do |f|
   .row-fluid
   .offset2.span7
+    - if @lostdog.errors.any?
+      #error_explanation
+        %h2= "Por favor! Corrige los errores para poder realizar tu publicación."
+        %ul
+          - @lostdog.errors.full_messages.each do |msg|
+            %li= msg    
     %div.well
-      %div
-        = f.label :name, "#{t('dog.name')}"
-        = f.text_field :name, :autofocus => true, class: "textField"
-      %div
-        = f.label :age, "#{t('dog.age')}"
-        = f.text_field :age, class: "textField"
       %div
         = f.label :breed, "#{t('dog.breed')}"
         = f.text_field :breed, class: "textField"
@@ -23,4 +23,7 @@
       %div
         = label_tag "Direccion"
         = text_field_tag "address", ""
-      %div= f.submit "#{t('guardar')}" ,  class: "btn btn-primary"
+        
+      %div.inline
+      = f.submit "#{t('guardar')}" ,  class: "btn btn-primary"
+      = link_to "Cancelar", root_path, class: "btn btn-warning", style: "color: white;"
