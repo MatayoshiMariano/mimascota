@@ -118,9 +118,9 @@ es:
     found_dogs: Perros encontrados      
   welcome: 
     new_lostdog_button: Publicar mascota perdida
-    new_founddog_button: Publicar mascota encontrada
-    new_adoptiondog_button: Publicar mascota en adopción
-    new_wanteddog_button: Publicar mascota buscada
+    new_found_dog_button: Publicar mascota encontrada
+    new_adoption_dog_button: Publicar mascota en adopción
+    new_wanted_dog_button: Publicar mascota buscada
 
   errors:
    format: "%{message}"
