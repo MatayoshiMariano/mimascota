@@ -38,7 +38,26 @@ es:
               blank: "El campo Constraseña no debe estar vacío"
             cellphone:
               blank: "El campo Número de celular no debe estar vacío"
-
+        lost_dog:
+          attributes:
+            name:
+              blank: "El campo Nombre no debe estar vacío"
+            age:
+              blank: "El campo Edad no debe estar vacío"
+            breed:
+              blank: "El campo Raza no debe estar vacío"
+            color:
+              blank: "El campo Color no debe estar vacío"
+            user:
+              blank: "El campo Usuario no debe estar vacío"
+            description:
+              blank: "El campo Descripción no debe estar vacío"
+            latitude:
+              blank: " "
+            longitude: 
+              blank: " "
+            gmaps4rails_address:
+              invalid_address: "Dirección invalida"
   back: Volver
   update: Actualizar
   atras: Atrás

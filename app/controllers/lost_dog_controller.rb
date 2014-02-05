@@ -25,7 +25,7 @@ class LostDogController < ApplicationController
 
   # GET /lost_dog/new
   def new
-    @lostdog = LostDog.new    
+    @dog = LostDog.new    
   end
 
   # GET /lost_dog/1/edit
@@ -34,23 +34,19 @@ class LostDogController < ApplicationController
 
   # POST /lost_dog
   def create
-    @lostdog = LostDog.new(lostdog_params)
-
-    respond_to do |format|
-
+    @dog = LostDog.new(lostdog_params)
+    @dog.user = current_user
+    if params[:address].present?
       coords = Gmaps4rails.geocode(params[:address])
-      @lostdog.latitude = coords[0][:lat]
-      @lostdog.longitude = coords[0][:lng]
-      @lostdog.user = current_user
+      @dog.latitude = coords[0][:lat]
+      @dog.longitude = coords[0][:lng]
+    end
 
-      if @lostdog.save
-        format.html { redirect_to @lostdog, notice: 'La publicación de su mascota perdida
-           ha sido exitosa. Deseamos que la recupere pronto.' }
-      else
-        Rails.logger.error(current_user)        
-        Rails.logger.error(@lostdog.errors.full_messages.join('\n'))        
-        format.html { render action: 'new' }
-      end
+    if @dog.save
+      redirect_to @dog, notice: 'La publicación de su mascota perdida
+         ha sido exitosa. Deseamos que la recupere pronto.'
+    else
+      render action: 'new'
     end
   end
 
