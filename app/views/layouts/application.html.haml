@@ -8,6 +8,17 @@
   %body{'data-controller' => "#{controller.controller_name}", 'data-action' => "#{controller.action_name}"}
     = render partial: "layouts/navbar"
     .container.main-container
+      .container
+        - if flash[:notice]
+          .alert.homeAlert
+            %button{type: "button", class: "close", :'data-dismiss' => "alert"}
+              &times
+            = flash[:notice]
+        -if flash[:error]
+          .alert.homeAlert
+            %button{type: "button", class: "close", :'data-dismiss' => "alert"}
+              &times
+            = flash[:error]    
       %p= bootstrap_flash
       = yield
     = render partial: "layouts/footer"

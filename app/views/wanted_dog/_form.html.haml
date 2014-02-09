@@ -10,25 +10,25 @@
     %div.well
       %div
         = f.label :name, "#{t('dog.name')}"
-        = f.text_field :name, :autofocus => true, class: "textField"
+        = f.text_field :name, :autofocus => true, class: "textField", required: true
       %div
         = f.label :age, "#{t('dog.age')}"
-        = f.text_field :age, class: "textField"
+        = f.text_field :age, class: "textField", required: true
       %div
         = f.label :breed, "#{t('dog.breed')}"
-        = f.text_field :breed, class: "textField"
+        = f.text_field :breed, class: "textField", required: true
       %div
         = f.label :color, "#{t('dog.color')}"
-        = f.text_field :color, class: "textField"
+        = f.text_field :color, class: "textField", required: true
       %div
         = f.label :description, "#{t('dog.description')}"
-        = f.text_area :description, class: "textareaForm"
+        = f.text_area :description, class: "textareaForm", required: true
       %div
         = label_tag "Direccion"
-        = text_field_tag "address", ""        
+        = text_field_tag "address", "", required: true
       %div
         = f.label :image, "#{t('dog.image')}"
-        = f.file_field :image
+        = f.file_field :image, required: true
 
 
       %div.inline

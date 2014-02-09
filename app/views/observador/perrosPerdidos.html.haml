@@ -1,29 +1,21 @@
-%h1 Observando a los Perros Encontrados
+%h1 Observando a los Perros Perdidos
 
 %table
   %tr
-    %th Id
     %th Nombre
     %th Breed
     %th Latitude
     %th Longitude
     %th Gmaps
-    %th Image 
-    %th Image File name
-    %th Image File size
-    %th User ID  
+    %th Image    
 
   - @perros.each do |perro|
     %tr
-      %td= perro.id
       %td= perro.name
       %td= perro.breed
       %td= perro.latitude
       %td= perro.longitude
       %td= perro.gmaps
       %td= perro.image
-      %td= perro.image_file_name
-      %td= perro.image_file_size
-      %td= perro.user_id
       %td= link_to "#{t('destruir')}", perro, :method => :delete, :data => { :confirm => "#{t('esta_seguro?')}" }  
 %br

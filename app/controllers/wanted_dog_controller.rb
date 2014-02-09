@@ -1,5 +1,6 @@
 class WantedDogController < ApplicationController
    include Gmaps4rails::ActsAsGmappable
+   before_action :set_wanted_dog, only: [:destroy]
   # TODO hecho para salvar error en pruebas
   def authenticate
   end
@@ -37,11 +38,9 @@ class WantedDogController < ApplicationController
 
       @wanted_dog.user = current_user
       if @wanted_dog.save
-        format.html { redirect_to @wanted_dog, notice: 'La publicación de su mascota buscada
+        format.html { redirect_to @wanted_dog, notice: 'La publicación de su mascota
            ha sido exitosa. Deseamos que la recupere pronto.' }
       else
-      	Rails.logger.info("ERRRORRRR!!!!")        
-        Rails.logger.info(@wanted_dog.errors.full_messages.join('\n'))        
         format.html { render action: 'new' }
       end
     end

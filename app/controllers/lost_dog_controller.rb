@@ -1,8 +1,15 @@
 class LostDogController < ApplicationController
-   include Gmaps4rails::ActsAsGmappable 
+   include Gmaps4rails::ActsAsGmappable
+   before_action :set_lostdog, only: [:destroy]
   # TODO hecho para salvar error en pruebas
   def authenticate
   end
+
+  def description
+    @dog = LostDog.find params[:id]
+    @markers = @dog.to_gmaps4rails
+    render :template => 'shared/dog_description'
+  end 
 
   # GET /lost_dog
   def index
@@ -16,7 +23,7 @@ class LostDogController < ApplicationController
 
   # GET /lost_dog/new
   def new
-    @lostdog = LostDog.new    
+    @dog = LostDog.new    
   end
 
   # GET /lost_dog/1/edit
@@ -25,25 +32,19 @@ class LostDogController < ApplicationController
 
   # POST /lost_dog
   def create
-    @lostdog = LostDog.new(lostdog_params)
+    @dog = LostDog.new(lostdog_params)
+    @dog.user = current_user
+    if params[:address].present?
+      coords = Gmaps4rails.geocode(params[:address])
+      @dog.latitude = coords[0][:lat]
+      @dog.longitude = coords[0][:lng]
+    end
 
-    respond_to do |format|
-
-      if params[:address] != ''
-        coords = Gmaps4rails.geocode(params[:address])
-        @lostdog.latitude = coords[0][:lat]
-        @lostdog.longitude = coords[0][:lng]
-        @lostdog.user = current_user
-      end
-
-      if @lostdog.save
-        format.html { redirect_to @lostdog, notice: 'La publicación de su mascota perdida
-           ha sido exitosa. Deseamos que la recupere pronto.' }
-      else
-        Rails.logger.error(current_user)        
-        Rails.logger.error(@lostdog.errors.full_messages.join('\n'))        
-        format.html { render action: 'new' }
-      end
+    if @dog.save
+      redirect_to @dog, notice: 'La publicación de la mascota encontrada
+         ha sido exitosa. Deseamos que aparezca pronto el dueño.'
+    else
+      render action: 'new'
     end
   end
 
@@ -62,7 +63,7 @@ class LostDogController < ApplicationController
   def destroy
     @lostdog.destroy
     respond_to do |format|
-      format.html { redirect_to lost_dog_url }
+      format.html { redirect_to lost_dog_index_path }
     end
   end
 
