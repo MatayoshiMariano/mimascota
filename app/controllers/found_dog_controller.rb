@@ -12,6 +12,15 @@ class FoundDogController < ApplicationController
     redirect_to observador_perrosEncontrados_url
   end
 
+  def index
+    @dogs = FoundDog.all
+  end
+
+  def show
+    @dog = FoundDog.find(params[:id])
+    @markers = @dog.to_gmaps4rails
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_found_dog
