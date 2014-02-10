@@ -3,14 +3,22 @@
 %table
   %tr
     %th Id
+    %th UId
     %th Nombre
     %th Apellido
+    %th E-mail
+    %th Password
+    %th Password encrypted
     %th Fecha Nacimiento
 
   - @usuarios.each do |usuario|
     %tr
       %td= usuario.id
+      %td= usuario.uid
       %td= usuario.first_name
       %td= usuario.last_name
+      %td= usuario.email
+      %td= usuario.password
+      %td= usuario.encrypted_password
       %td= usuario.birthday
 %br

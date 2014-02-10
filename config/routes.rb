@@ -1,12 +1,11 @@
-Mimascota::Application.routes.draw do
-  
-  
+Mimascota::Application.routes.draw do  
 
   get "cargador/ejemploJson"
   get "cargador/testSubirPerroEncontrado"
   #get "cargador/subirPerroEncontrado"
   post "cargador/subirPerroEncontrado"
-  resources :lost_dog, :noticia, :wanted_dog
+
+  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,6 +16,9 @@ Mimascota::Application.routes.draw do
   get 'observador/perrosEncontrados'
   get 'observador/perrosPerdidos'
   get 'observador/usuarios'
+  get 'observador/loginCelular'
+  post 'observador/loginCelular'
+  get 'observador/http_authenticate'
 
   get 'welcome/lost_dogs_json' => 'welcome#lost_dogs_json'
   get 'welcome/wanted_dogs_json' => 'welcome#wanted_dogs_json'
