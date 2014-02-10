@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  validates :first_name, :last_name, :birthday, presence: true
+  #validates :first_name, :last_name, :birthday, presence: true
 
 	def fullname
 		self.first_name + ' ' + self.last_name

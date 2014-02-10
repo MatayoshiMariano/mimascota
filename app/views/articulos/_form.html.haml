@@ -1,0 +1,16 @@
+= form_for @articulo do |f|
+  - if @articulo.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@articulo.errors.count, "error")} prohibited this articulo from being saved:"
+      %ul
+        - @articulo.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :texto
+    = f.text_area :texto
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,16 @@
+= form_for @adoption_dog do |f|
+  - if @adoption_.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@adoption_.errors.count, "error")} prohibited this adoption_ from being saved:"
+      %ul
+        - @adoption_.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :Nombre
+    = f.text_field :Nombre
+  .field
+    = f.label :Edad
+    = f.text_area :Edad
+  .actions
+    = f.submit 'Save'

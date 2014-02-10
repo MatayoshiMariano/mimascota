@@ -1,0 +1,21 @@
+%h1 Listando Perros en Adopcion
+
+%table
+  %tr
+    %th Nombre
+    %th Edad
+    %th
+    %th
+    %th
+
+  - @adoption.each do |adoption_dog|
+    %tr
+      %td= adoption_dog.name
+      %td= adoption_dog.age
+      %td= link_to 'Show', adoption_dog
+      %td= link_to 'Edit', edit_adoption_dog_path(adoption_dog)
+      %td= link_to 'Destroy', adoption_dog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Adoption', new_adoption_dog_path

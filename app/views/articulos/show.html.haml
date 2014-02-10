@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Titulo:
+  = @articulo.titulo
+%p
+  %b Texto:
+  = @articulo.texto
+
+= link_to 'Edit', edit_articulo_path(@articulo)
+\|
+= link_to 'Back', articulos_path

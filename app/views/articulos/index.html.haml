@@ -1,0 +1,21 @@
+%h1 Listing articulos
+
+%table
+  %tr
+    %th Titulo
+    %th Texto
+    %th
+    %th
+    %th
+
+  - @articulos.each do |articulo|
+    %tr
+      %td= articulo.titulo
+      %td= articulo.texto
+      %td= link_to 'Show', articulo
+      %td= link_to 'Edit', edit_articulo_path(articulo)
+      %td= link_to 'Destroy', articulo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Articulo', new_articulo_path

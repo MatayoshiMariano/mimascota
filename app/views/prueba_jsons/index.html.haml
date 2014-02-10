@@ -1,0 +1,17 @@
+%h1 Listing prueba_jsons
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @prueba_jsons.each do |prueba_json|
+    %tr
+      %td= link_to 'Show', prueba_json
+      %td= link_to 'Edit', edit_prueba_json_path(prueba_json)
+      %td= link_to 'Destroy', prueba_json, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Prueba json', new_prueba_json_path

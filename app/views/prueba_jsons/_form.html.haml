@@ -1,0 +1,10 @@
+= form_for @prueba_json do |f|
+  - if @prueba_json.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@prueba_json.errors.count, "error")} prohibited this prueba_json from being saved:"
+      %ul
+        - @prueba_json.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
