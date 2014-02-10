@@ -2,12 +2,6 @@
   .offset2.span7
     %div.well
       %p
-        %b #{t('dog.name')}:
-        = @lostdog.name
-      %p
-        %b #{t('dog.age')}:
-        = @lostdog.age
-      %p
         %b #{t('dog.breed')}:
         = @lostdog.breed
       %p
@@ -19,4 +13,4 @@
       %p
         = image_tag @lostdog.image.url
 
-      = link_to "#{t('dog.lost_dog_list')}", lost_dog_index_path, class: "btn btn-primary"
+      = link_to "Inicio", root_path, class: "btn btn-primary"

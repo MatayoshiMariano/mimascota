@@ -1,6 +1,9 @@
 class WantedDog < ActiveRecord::Base
   include Dog
-  acts_as_gmappable
+  validates :name, :presence => { :message => "Debe ingresar el nombre." } 
+  validates :age, :presence => { :message => "Debe ingresar la edad." }
+
+  acts_as_gmappable :msg => "Debes ingresar una dirección." 
 
   def gmaps4rails_marker_picture
     {

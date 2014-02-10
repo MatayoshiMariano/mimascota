@@ -6,14 +6,8 @@
       - @dog.errors.full_messages.each do |msg|
         %p= msg
   .row-fluid
-    .offset2.span7
+    .offset2.span7      
       %div.well
-        %div
-          = f.label :name, "#{t('dog.name')}"
-          = f.text_field :name, :autofocus => true, class: "textField", required: true
-        %div
-          = f.label :age, "#{t('dog.age')}"
-          = f.text_field :age, class: "textField", required: true
         %div
           = f.label :breed, "#{t('dog.breed')}"
           = f.text_field :breed, class: "textField", required: true

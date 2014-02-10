@@ -6,7 +6,7 @@ Mimascota::Application.routes.draw do
   get "cargador/testSubirPerroEncontrado"
   #get "cargador/subirPerroEncontrado"
   post "cargador/subirPerroEncontrado"
-  resources :lost_dog, :noticia
+  resources :lost_dog, :noticia, :wanted_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -29,6 +29,7 @@ Mimascota::Application.routes.draw do
   get 'found_dog/description/:id' => 'found_dog#description'
 
   post 'lost_dog/new' => 'lost_dog#create'
+  post 'wanted_dog/new' => 'wanted_dog#create'
   resources :found_dog
 
   devise_for :users, :controllers => {

@@ -2,8 +2,8 @@ class WelcomeController < ApplicationController
 	def index
     @json = WantedDog.all.to_gmaps4rails do |wanted_dog, marker|
     marker.infowindow render_to_string(partial: "info_window", locals: {controller: 'wanted_dog', object: wanted_dog})
-      marker.json({ category: 'WantedDog'})
-    end
+    marker.json({ category: 'WantedDog'})
+  end
 	end
 
   def lost_dogs_json

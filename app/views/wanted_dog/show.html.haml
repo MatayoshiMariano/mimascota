@@ -1,0 +1,23 @@
+= form_for :wanted_dog do |f|
+  .row-fluid
+  .offset2.span7
+    %div.well
+      %p
+        %b #{t('dog.name')}:
+        = @wanted_dog.name
+      %p
+        %b #{t('dog.age')}:
+        = @wanted_dog.age
+      %p
+        %b #{t('dog.breed')}:
+        = @wanted_dog.breed
+      %p
+        %b #{t('dog.color')}:
+        = @wanted_dog.color
+      %p
+        %b #{t('dog.description')}:
+        = @wanted_dog.description
+      %p
+        = image_tag @wanted_dog.image.url
+
+      = link_to "Inicio", root_path, class: "btn btn-primary"

@@ -1,8 +1,6 @@
-
 class LostDogController < ApplicationController
    include Gmaps4rails::ActsAsGmappable
    before_action :set_lostdog, only: [:destroy]
-
   # TODO hecho para salvar error en pruebas
   def authenticate
   end
@@ -43,8 +41,8 @@ class LostDogController < ApplicationController
     end
 
     if @dog.save
-      redirect_to @dog, notice: 'La publicación de su mascota perdida
-         ha sido exitosa. Deseamos que la recupere pronto.'
+      redirect_to @dog, notice: 'La publicación de la mascota encontrada
+         ha sido exitosa. Deseamos que aparezca pronto el dueño.'
     else
       render action: 'new'
     end
@@ -84,7 +82,7 @@ class LostDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostdog_params
-      params.require(:lostdog).permit(:name, :age, :breed, :color, :description, :address, :image)
+      params.require(:lostdog).permit(:age, :breed, :color, :description, :address, :image)
     end
     
 end
