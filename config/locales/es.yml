@@ -140,6 +140,17 @@ es:
     new_found_dog_button: Publicar mascota encontrada
     new_adoption_dog_button: Publicar mascota en adopción
     new_wanted_dog_button: Publicar mascota buscada
-
   errors:
    format: "%{message}"
+  activerecord:
+    models:
+      lost_dog: "Perro"
+    attributes:
+      lost_dog:
+        name: "Nombre"        
+        user: "Dueño"
+        age: "Edad"
+        breed: "Raza"
+        color: "Color pelaje"
+        description: "Descripción"
+        image: "Imagen"

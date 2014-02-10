@@ -1,11 +1,10 @@
-Mimascota::Application.routes.draw do
-  
-  
+Mimascota::Application.routes.draw do  
 
   get "cargador/ejemploJson"
   get "cargador/testSubirPerroEncontrado"
   #get "cargador/subirPerroEncontrado"
   post "cargador/subirPerroEncontrado"
+
   resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -32,6 +31,7 @@ Mimascota::Application.routes.draw do
   get 'found_dog/description/:id' => 'found_dog#description'
 
   post 'lost_dog/new' => 'lost_dog#create'
+  post 'wanted_dog/new' => 'wanted_dog#create'
   resources :found_dog
 
   devise_for :users, :controllers => {

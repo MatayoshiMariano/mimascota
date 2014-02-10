@@ -1,25 +1,23 @@
-.row-fluid
-.offset1.span9
-  %div.well
-    %p
-      %b #{t('dog.name')}:
-      = @dog.name
-    %p
-      %b #{t('dog.age')}:
-      = @dog.age
-    %p
-      %b #{t('dog.breed')}:
-      = @dog.breed
-    %p
-      %b #{t('dog.color')}:
-      = @dog.color
-    %p
-      %b #{t('dog.description')}:
-      = @dog.description
-    %p
-      = image_tag @dog.image.url
+= form_for :wanted_dog do |f|
+  .row-fluid
+  .offset2.span7
+    %div.well
+      %p
+        %b #{t('dog.name')}:
+        = @wanted_dog.name
+      %p
+        %b #{t('dog.age')}:
+        = @wanted_dog.age
+      %p
+        %b #{t('dog.breed')}:
+        = @wanted_dog.breed
+      %p
+        %b #{t('dog.color')}:
+        = @wanted_dog.color
+      %p
+        %b #{t('dog.description')}:
+        = @wanted_dog.description
+      %p
+        = image_tag @wanted_dog.image.url
 
-    %p #{t('dog.seen_on')}
-    = gmaps({"map_options" => {zoom: 10, "auto_zoom" => false}, "markers" => { "data" => @markers }} )
-
-    = link_to "#{t('dog.wanted_dogs')}", wanted_dog_index_path, class: "btn btn-primary"
+      = link_to "Inicio", root_path, class: "btn btn-primary"
