@@ -1,9 +1,8 @@
 Mimascota::Application.routes.draw do  
 
   get "cargador/ejemploJson"
-  get "cargador/testSubirPerroEncontrado"
-  #get "cargador/subirPerroEncontrado"
-  post "cargador/subirPerroEncontrado"
+  get "cargador/testSubirPerroBuscado"
+  post "cargador/subirPerroBuscado"
 
   resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
 
@@ -13,8 +12,10 @@ Mimascota::Application.routes.draw do
   # You can have the  root of your site routed with "root"
   root to: 'welcome#index'
 
+  get 'observador/obtenerCoincidencias/:id' => 'observador#obtenerCoincidencias'
   get 'observador/perrosEncontrados'
   get 'observador/perrosPerdidos'
+  get 'observador/perrosBuscados'
   get 'observador/usuarios'
   get 'observador/loginCelular'
   post 'observador/loginCelular'

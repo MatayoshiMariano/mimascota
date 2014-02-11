@@ -1,0 +1,23 @@
+%h1 #{t('dog.candidates_dogs_list')}
+
+.row-fluid
+  .span10
+    -@candidatos.each do |candidato| 
+      .media
+        .pull-left
+          .media-object
+            %img{src: candidato.image.url }
+        .media-body
+          %h4= candidato.name
+          %p
+            %b #{t('dog.age')}:
+            = candidato.age
+          %p
+            %b #{t('dog.breed')}:
+            = candidato.breed
+          %p
+            %b #{t('dog.color')}:
+            = candidato.color
+          %p
+            %b #{t('dog.description')}:
+            = candidato.description
