@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127224511) do
+ActiveRecord::Schema.define(version: 20140212221330) do
 
   create_table "adoption_dogs", force: true do |t|
     t.string   "name"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20140127224511) do
   end
 
   add_index "adoption_dogs", ["user_id"], name: "index_adoption_dogs_on_user_id", using: :btree
+
+  create_table "breeds", force: true do |t|
+    t.text     "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "found_dogs", force: true do |t|
     t.string   "name"
@@ -68,8 +74,10 @@ ActiveRecord::Schema.define(version: 20140127224511) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "breed_id"
   end
 
+  add_index "lost_dogs", ["breed_id"], name: "index_lost_dogs_on_breed_id", using: :btree
   add_index "lost_dogs", ["user_id"], name: "index_lost_dogs_on_user_id", using: :btree
 
   create_table "noticia", force: true do |t|
@@ -110,7 +118,6 @@ ActiveRecord::Schema.define(version: 20140127224511) do
   create_table "wanted_dogs", force: true do |t|
     t.string   "name"
     t.string   "age"
-    t.string   "breed"
     t.string   "color"
     t.integer  "user_id"
     t.text     "description"
@@ -126,8 +133,10 @@ ActiveRecord::Schema.define(version: 20140127224511) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "breed_id"
   end
 
+  add_index "wanted_dogs", ["breed_id"], name: "index_wanted_dogs_on_breed_id", using: :btree
   add_index "wanted_dogs", ["user_id"], name: "index_wanted_dogs_on_user_id", using: :btree
 
 end

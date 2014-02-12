@@ -24,7 +24,7 @@ class LostDogController < ApplicationController
 
   # GET /lost_dog/new
   def new
-    @dog = LostDog.new    
+    @dog = LostDog.new
   end
 
   # GET /lost_dog/1/edit
@@ -36,9 +36,15 @@ class LostDogController < ApplicationController
     @dog = LostDog.new(lostdog_params)
     @dog.user = current_user
     if params[:address].present?
+      Rails.logger.info("INFO:: ADDRESS" + params[:address])
       coords = Gmaps4rails.geocode(params[:address])
-      @dog.latitude = coords[0][:lat]
-      @dog.longitude = coords[0][:lng]
+      Rails.logger.info("INFO:: LAT")
+      Rails.logger.info(coords[0][:lat])
+      @dog.latitude = coords[0][:lat] || 0
+      Rails.logger.info("INFO:: LNG")
+      Rails.logger.info(coords[0][:lng])
+      @dog.longitude = coords[0][:lng] || 0
+
     end
 
     if @dog.save
@@ -83,7 +89,7 @@ class LostDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostdog_params
-      params.require(:lostdog).permit(:age, :breed, :color, :description, :address, :image)
+      params.require(:lostdog).permit(:age, :breed_id, :color, :description, :address, :image)
     end
     
 end
