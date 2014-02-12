@@ -1,0 +1,23 @@
+%h1 Observando a los Perros Buscados
+
+%table
+  %tr
+    %th Id
+    %th Nombre
+    %th Breed    
+    %th Latitude
+    %th Longitude
+    %th Gmaps
+    %th Image    
+
+  - @perros.each do |perro|
+    %tr
+      %td= perro.id
+      %td= perro.name
+      %td= perro.breed
+      %td= perro.latitude
+      %td= perro.longitude
+      %td= perro.gmaps
+      %td= perro.image
+      %td= link_to "#{t('destruir')}", perro, :method => :delete, :data => { :confirm => "#{t('esta_seguro?')}" }  
+%br

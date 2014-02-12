@@ -103,6 +103,7 @@ es:
     change_password: Cambiar mi contraseña
     send_reset_instruction: Cambiar contraseña
   dog:
+    candidates_dogs_list: Posibles candidatos
     lost_dog_list: Perros perdidos
     found_dogs: Perros encontrados
     wanted_dogs: Perros buscados
