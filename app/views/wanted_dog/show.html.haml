@@ -10,7 +10,7 @@
         = @wanted_dog.age
       %p
         %b #{t('dog.breed')}:
-        = @wanted_dog.breed
+        = @wanted_dog.breed.label
       %p
         %b #{t('dog.color')}:
         = @wanted_dog.color
@@ -20,4 +20,4 @@
       %p
         = image_tag @wanted_dog.image.url
 
-      = link_to "Inicio", root_path, class: "btn btn-primary"
+      = link_to "Inicio", root_path, class: "btn btn-primary", style: "color: white;"
