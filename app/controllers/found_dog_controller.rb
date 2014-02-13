@@ -16,6 +16,30 @@ class FoundDogController < ApplicationController
     @dogs = FoundDog.all
   end
 
+  def new
+    if params[:wanted_dog_id]
+      @dog = WantedDog.find(params[:wanted_dog_id])
+    end
+    
+    if params[:lost_dog_id]
+      @dog = LostDog.find(params[:lost_dog_id])
+    end
+
+    found_dog = FoundDog.new
+    found_dog.name = @dog.name
+    found_dog.age = @dog.age
+    found_dog.breed_id = @dog.breed_id
+    found_dog.color = @dog.color
+    found_dog.user_id = @dog.user_id
+    found_dog.description = @dog.description
+    found_dog.image = @dog.image
+    found_dog.latitude = @dog.latitude
+    found_dog.longitude = @dog.longitude
+    found_dog.save
+
+    redirect_to found_dog
+  end  
+
   def show
     @dog = FoundDog.find(params[:id])
     @markers = @dog.to_gmaps4rails

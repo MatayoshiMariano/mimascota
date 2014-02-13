@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209193508) do
+ActiveRecord::Schema.define(version: 20140213022745) do
 
   create_table "adoption_dogs", force: true do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20140209193508) do
 
   add_index "adoption_dogs", ["user_id"], name: "index_adoption_dogs_on_user_id", using: :btree
 
+  create_table "articulos", force: true do |t|
+    t.string   "titulo"
+    t.text     "texto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "breeds", force: true do |t|
     t.text     "label"
     t.datetime "created_at"
@@ -41,7 +48,6 @@ ActiveRecord::Schema.define(version: 20140209193508) do
   create_table "found_dogs", force: true do |t|
     t.string   "name"
     t.string   "age"
-    t.string   "breed"
     t.string   "color"
     t.integer  "user_id"
     t.text     "description"
@@ -53,8 +59,10 @@ ActiveRecord::Schema.define(version: 20140209193508) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "breed_id"
   end
 
+  add_index "found_dogs", ["breed_id"], name: "index_found_dogs_on_breed_id", using: :btree
   add_index "found_dogs", ["user_id"], name: "index_found_dogs_on_user_id", using: :btree
 
   create_table "lost_dogs", force: true do |t|
@@ -83,6 +91,11 @@ ActiveRecord::Schema.define(version: 20140209193508) do
   create_table "noticia", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prueba_jsons", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

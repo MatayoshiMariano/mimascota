@@ -12,7 +12,8 @@ class WantedDogController < ApplicationController
 
   # GET /lost_dog/1
   def show
-    @wanted_dog = WantedDog.find(params[:id])
+    @dog = WantedDog.find(params[:id])
+    @markers = @dog.to_gmaps4rails
   end
 
   # GET /lost_dog/new
@@ -81,11 +82,6 @@ class WantedDogController < ApplicationController
     @markers = @dog.to_gmaps4rails
     render :template => 'shared/dog_description'
   end
-
-  def show
-    @dog = WantedDog.find(params[:id])
-    @markers = @dog.to_gmaps4rails
-  end  
 
   def index
     @dogs = WantedDog.all

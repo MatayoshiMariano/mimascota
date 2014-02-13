@@ -4,20 +4,21 @@
     %div.well
       %p
         %b #{t('dog.name')}:
-        = @wanted_dog.name
+        = @dog.name
       %p
         %b #{t('dog.age')}:
-        = @wanted_dog.age
+        = @dog.age
       %p
         %b #{t('dog.breed')}:
-        = @wanted_dog.breed.label
+        = @dog.breed.label
       %p
         %b #{t('dog.color')}:
-        = @wanted_dog.color
+        = @dog.color
       %p
         %b #{t('dog.description')}:
-        = @wanted_dog.description
+        = @dog.description
       %p
-        = image_tag @wanted_dog.image.url
+        = image_tag @dog.image.url
 
       = link_to "Inicio", root_path, class: "btn btn-primary", style: "color: white;"
+      = link_to "¡La encontrámos!", new_found_dog_path + '?wanted_dog_id=' + @dog.id.to_s, class: "btn btn-primary", style: "color: white;"
