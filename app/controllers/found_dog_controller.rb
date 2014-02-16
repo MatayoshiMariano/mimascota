@@ -38,6 +38,7 @@ class FoundDogController < ApplicationController
     found_dog.longitude = @dog_data.longitude
     found_dog.save
 
+    possibles_ids = DogPossibleOwner.where("user_id =" + current_user.id.to_s).destroy
     if @old_lost_dog
       @old_lost_dog.destroy
     end  

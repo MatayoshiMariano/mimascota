@@ -84,6 +84,8 @@ es:
     home: Inicio
     profile: Perfil
     app: Mi mascota
+    my_pet: Mi mascota
+    my_possibilities: Mis posibles mascotas    
   user:
     first_name: Nombre
     last_name: Apellido

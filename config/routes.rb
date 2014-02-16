@@ -34,7 +34,8 @@ Mimascota::Application.routes.draw do
   post 'lost_dog/new' => 'lost_dog#create'
   post 'wanted_dog/new' => 'wanted_dog#create'
   get 'users/show/:id', to: 'users#show', as: 'user_show'
-
+  get 'users/mi_mascota', to: 'users#my_pet', as: 'user_my_pet'
+  get 'users/mis_posibles_macotas', to: 'users#my_possibles', as: 'user_my_possibles'
   resources :found_dog
   
   devise_for :users, :controllers => {

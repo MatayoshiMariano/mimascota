@@ -11,6 +11,23 @@ class User < ActiveRecord::Base
 		self.first_name + ' ' + self.last_name
 	end
 
+  def has_pet
+    if WantedDog.find_by user_id: self.id
+      Rails.logger.info("TIENE MASCOTA!!!")
+      return true
+    end
+    Rails.logger.info("NO TIENE MASCOTA!!!")
+    return false
+  end
+
+  def has_possibles
+    if DogPossibleOwner.find_by user_id: self.id
+      Rails.logger.info("TIENE POSIBILIDADES!!!")
+      return true
+    end
+    Rails.logger.info("NO TIENE POSIBILIDADES!!!")
+    return false
+  end 
 
   # Required methods to login using Facebook connect and Devise
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -42,5 +59,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end

@@ -10,17 +10,16 @@
         .media-body
           %h4= lostdog.name
           %p
-            %b #{t('dog.age')}:
-            = lostdog.age
-          %p
             %b #{t('dog.breed')}:
-            = lostdog.breed
+            = lostdog.breed.label
           %p
             %b #{t('dog.color')}:
             = lostdog.color
           %p
             %b #{t('dog.description')}:
             = lostdog.description
-
+          %p
+            %b Encontrado por
+            = lostdog.user.fullname
   .span2
     = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary btn-block lost-dogs", style: "color: white;"
