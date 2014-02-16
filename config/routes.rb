@@ -33,8 +33,10 @@ Mimascota::Application.routes.draw do
 
   post 'lost_dog/new' => 'lost_dog#create'
   post 'wanted_dog/new' => 'wanted_dog#create'
-  resources :found_dog
+  get 'users/show/:id', to: 'users#show', as: 'user_show'
 
+  resources :found_dog
+  
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'devise_overrides/registrations'

@@ -7,7 +7,7 @@
         .brand
           = link_to "#{t('navbar.app')}", root_path, 'data-no-turbolink' => true, class: "link-to"
         %ul.nav
-          %li.home= link_to "#{t('navbar.home')}", root_path, 'data-no-turbolink' => true
+          %li.home= link_to "#{t('navbar.home')}", root_path, 'data-no-turbolink' => true          
           - if !user_signed_in?
             %li.login= link_to "#{t('navbar.login')}", new_user_session_path
             %li.sign-up= link_to "#{t('navbar.sign_up')}", new_user_registration_path        

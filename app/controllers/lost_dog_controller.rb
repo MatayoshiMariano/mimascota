@@ -20,6 +20,17 @@ class LostDogController < ApplicationController
   def show
     @lostdog = LostDog.find(params[:id])
     @markers = @lostdog.to_gmaps4rails
+    possible_owners = DogPossibleOwner.find_by dog_id: params[:id]
+    @marby_is_my_dog_button = true
+    @is_my_dog_button = false
+    if possible_owners
+      @is_my_dog_button = true
+      @marby_is_my_dog_button = false
+    end    
+    if @lostdog.user == current_user
+      @is_my_dog_button = false
+      @marby_is_my_dog_button = false
+    end        
   end
 
   # GET /lost_dog/new
@@ -36,13 +47,8 @@ class LostDogController < ApplicationController
     @dog = LostDog.new(lostdog_params)
     @dog.user = current_user
     if params[:address].present?
-      Rails.logger.info("INFO:: ADDRESS" + params[:address])
       coords = Gmaps4rails.geocode(params[:address])
-      Rails.logger.info("INFO:: LAT")
-      Rails.logger.info(coords[0][:lat])
       @dog.latitude = coords[0][:lat] || 0
-      Rails.logger.info("INFO:: LNG")
-      Rails.logger.info(coords[0][:lng])
       @dog.longitude = coords[0][:lng] || 0
 
     end
@@ -79,7 +85,6 @@ class LostDogController < ApplicationController
     @markers = @dog.to_gmaps4rails
     render :template => 'shared/dog_description'
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

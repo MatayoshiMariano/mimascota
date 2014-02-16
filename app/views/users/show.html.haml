@@ -1,0 +1,15 @@
+.row-fluid
+  .offset2.span7
+    %div.well
+      %p
+        %b #{t('users.fullname')}:
+        = @contact.fullname
+      %p
+        %b #{t('users.cellphone')}:
+        = @contact.cellphone
+      %p
+        %b #{t('users.email')}:
+        = @contact.email
+
+      = link_to "Inicio", root_path, class: "btn btn-primary", style: "color: white;" 
+
