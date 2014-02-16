@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   		Rails.logger.info(possibles_ids)
 	  	@lostdogs = LostDog.find(possibles_ids)
 	  	if @lostdogs
-	  		render :template => '/lost_dog/index'
+	  		render :template => '/lost_dog/possibles'
 	  	else
 	  		redirect_to root_path
 	  	end

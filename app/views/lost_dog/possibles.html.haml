@@ -1,0 +1,23 @@
+%h1 #{t('lost_dog.possibles_title')}
+
+.row-fluid
+  .span10
+    -@lostdogs.each do |lostdog|  
+      .media
+        .pull-left
+          .media-object
+            %img{src: lostdog.image.url }
+        .media-body
+          %h4= lostdog.name
+          %p
+            %b #{t('dog.breed')}:
+            = lostdog.breed.label
+          %p
+            %b #{t('dog.color')}:
+            = lostdog.color
+          %p
+            %b #{t('dog.description')}:
+            = lostdog.description
+          %p
+            %b Encontrado por
+            = lostdog.user.fullname
