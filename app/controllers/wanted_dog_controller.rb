@@ -12,7 +12,8 @@ class WantedDogController < ApplicationController
 
   # GET /lost_dog/1
   def show
-    @wanted_dog = WantedDog.find(params[:id])
+    @dog = WantedDog.find(params[:id])
+    @markers = @dog.to_gmaps4rails
   end
 
   # GET /lost_dog/new
@@ -73,7 +74,7 @@ class WantedDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wanted_dog_params
-      params.require(:wanted_dog).permit(:name, :age, :breed, :color, :description, :address, :image)
+      params.require(:wanted_dog).permit(:name, :age, :breed_id, :color, :description, :address, :image)
     end
 
   def description
@@ -81,11 +82,6 @@ class WantedDogController < ApplicationController
     @markers = @dog.to_gmaps4rails
     render :template => 'shared/dog_description'
   end
-
-  def show
-    @dog = WantedDog.find(params[:id])
-    @markers = @dog.to_gmaps4rails
-  end  
 
   def index
     @dogs = WantedDog.all

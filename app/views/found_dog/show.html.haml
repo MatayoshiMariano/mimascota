@@ -9,7 +9,7 @@
       = @dog.age
     %p
       %b #{t('dog.breed')}:
-      = @dog.breed
+      = @dog.breed.label
     %p
       %b #{t('dog.color')}:
       = @dog.color
@@ -19,7 +19,7 @@
     %p
       = image_tag @dog.image.url
 
-    %p #{t('dog.seen_on')}
+    %p #{t('dog.found_on')}
     = gmaps({"map_options" => {zoom: 10, "auto_zoom" => false}, "markers" => { "data" => @markers }} )
 
     = link_to "#{t('dog.found_dogs')}", found_dog_index_path, class: "btn btn-primary"

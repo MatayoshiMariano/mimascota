@@ -3,6 +3,7 @@ module Dog
    
     base.has_attached_file :image
     base.belongs_to :user    
+    base.belongs_to :breed
     base.validates :breed, presence: { message: "Debe ingresar la raza." } 
     base.validates :color, presence: { message: "Debe ingresar el color del pelaje." } 
     base.validates :user, presence: true

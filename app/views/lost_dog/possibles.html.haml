@@ -1,4 +1,4 @@
-%h1 #{t('dog.lost_dog_list')}
+%h1 #{t('lost_dog.possibles_title')}
 
 .row-fluid
   .span10
@@ -6,7 +6,7 @@
       .media
         .pull-left
           .media-object
-            %img{src: lostdog.image.url }
+            %img.possibles_list{src: lostdog.image.url }
         .media-body
           %h4= lostdog.name
           %p
@@ -21,5 +21,3 @@
           %p
             %b Encontrado por
             = lostdog.user.fullname
-  .span2
-    = link_to "#{t('welcome.new_lostdog_button')}", new_lost_dog_path, class: "btn btn-primary btn-block lost-dogs", style: "color: white;"

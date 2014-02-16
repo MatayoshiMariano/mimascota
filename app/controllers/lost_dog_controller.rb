@@ -20,11 +20,22 @@ class LostDogController < ApplicationController
   def show
     @lostdog = LostDog.find(params[:id])
     @markers = @lostdog.to_gmaps4rails
+    possible_owners = DogPossibleOwner.find_by dog_id: params[:id]
+    @marby_is_my_dog_button = true
+    @is_my_dog_button = false
+    if possible_owners
+      @is_my_dog_button = true
+      @marby_is_my_dog_button = false
+    end    
+    if @lostdog.user == current_user
+      @is_my_dog_button = false
+      @marby_is_my_dog_button = false
+    end        
   end
 
   # GET /lost_dog/new
   def new
-    @dog = LostDog.new    
+    @dog = LostDog.new
   end
 
   # GET /lost_dog/1/edit
@@ -37,8 +48,9 @@ class LostDogController < ApplicationController
     @dog.user = current_user
     if params[:address].present?
       coords = Gmaps4rails.geocode(params[:address])
-      @dog.latitude = coords[0][:lat]
-      @dog.longitude = coords[0][:lng]
+      @dog.latitude = coords[0][:lat] || 0
+      @dog.longitude = coords[0][:lng] || 0
+
     end
 
     if @dog.save
@@ -74,7 +86,6 @@ class LostDogController < ApplicationController
     render :template => 'shared/dog_description'
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lostdog
@@ -83,7 +94,7 @@ class LostDogController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostdog_params
-      params.require(:lostdog).permit(:age, :breed, :color, :description, :address, :image)
+      params.require(:lostdog).permit(:age, :breed_id, :color, :description, :address, :image)
     end
     
 end

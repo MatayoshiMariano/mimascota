@@ -3,7 +3,7 @@
     %div.well
       %p
         %b #{t('dog.breed')}:
-        = @lostdog.breed
+        = @lostdog.breed.label
       %p
         %b #{t('dog.color')}:
         = @lostdog.color
@@ -13,4 +13,8 @@
       %p
         = image_tag @lostdog.image.url
 
-      = link_to "Inicio", root_path, class: "btn btn-primary"
+      = link_to "Inicio", root_path, class: "btn btn-primary", style: "color: white;" 
+      -if @is_my_dog_button
+        = link_to "Es el mio!", new_found_dog_path + '?lost_dog_id=' + @lostdog.id.to_s, class: "btn btn-primary", style: "color: white;"       
+      -if @marby_is_my_dog_button
+        = link_to "Creo que es el mio", user_show_path(@lostdog.user_id.to_s)+ '?dog_id=' + @lostdog.id.to_s, class: "btn btn-primary", style: "color: white;"       

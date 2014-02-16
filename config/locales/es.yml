@@ -4,6 +4,11 @@ es:
       also_fb: "También se puede registrar vía facebook"
     sign_in:
       also_fb: "También se puede iniciar sesión vía facebook"
+    cellphone: Número de celular
+    fullname: Nombre      
+    email: e-mail    
+  lost_dog:
+    possibles_title: Mis posibles mascotas
   activerecord:
     attributes:
       user:
@@ -17,6 +22,7 @@ es:
         password_confirmation: Confirmación de contraseña
         name: Nombre
         cellphone: Número de celular
+        fullname: Nombre
     errors:
      models:
         user:
@@ -80,6 +86,8 @@ es:
     home: Inicio
     profile: Perfil
     app: Mi mascota
+    my_pet: Mi mascota
+    my_possibilities: Mis posibles mascotas    
   user:
     first_name: Nombre
     last_name: Apellido
@@ -116,6 +124,7 @@ es:
     description: Descripción
     image: Imagen
     seen_on: Visto en
+    found_on: Encontrado en
   helpers:
     actions: "Actions"
     links:
@@ -137,10 +146,10 @@ es:
     adopt_dogs: Perros en adopción
     found_dogs: Perros encontrados      
   welcome: 
-    new_lostdog_button: Publicar mascota perdida
+    new_lostdog_button: Encontré una mascota
     new_found_dog_button: Publicar mascota encontrada
     new_adoption_dog_button: Publicar mascota en adopción
-    new_wanted_dog_button: Publicar mascota buscada
+    new_wanted_dog_button: Publicar mi mascota
   errors:
    format: "%{message}"
   activerecord:
