@@ -14,6 +14,7 @@
           -else
             %li.dropdown
               %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#" }= current_user.name
+              %b.caret
               %ul.dropdown-menu{"role" => "menu"}
                 - if current_user.has_pet             
                   %li.sign-out= link_to "#{t('navbar.my_pet')}", user_my_pet_path
