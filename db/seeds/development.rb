@@ -40,7 +40,9 @@ class DevSeeds
     def init_breeds
       @breeds = []
       IO.foreach('db/seeds/dogs_breeds.txt') do |line|
-        @breeds << line[0..-2]
+        breed =   
+        @breeds << breed
+        Breed.create(label: breed)
       end
     end
 

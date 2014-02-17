@@ -13,7 +13,7 @@
             %li.sign-up= link_to "#{t('navbar.sign_up')}", new_user_registration_path        
           -else
             %li.dropdown
-              %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#" }= current_user.first_name
+              %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#" }= current_user.first_name 
               %b.navbar.caret
               %ul.dropdown-menu{"role" => "menu"}
                 - if current_user.has_pet             
