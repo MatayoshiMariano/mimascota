@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20140217214500) do
   create_table "lost_dogs", force: true do |t|
     t.string   "name"
     t.string   "age"
-    t.string   "breed"
     t.string   "color"
     t.integer  "user_id"
     t.text     "description"
