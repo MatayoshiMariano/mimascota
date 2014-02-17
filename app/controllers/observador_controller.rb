@@ -10,7 +10,7 @@ class ObservadorController < ApplicationController
     @lost_dogs.each do |posMatch|
       dist = Math.sqrt ( (dog.latitude - posMatch.latitude) * (dog.latitude - posMatch.latitude) + (dog.longitude - posMatch.longitude) * (dog.longitude - posMatch.longitude) )
 
-      if(dist <= maxDist) && (dog["breed"] == posMatch["breed"])
+      if(dist <= maxDist) && (dog["breed_id"] == posMatch["breed_id"])
         @candidatos[@candidatos.length] = posMatch
       end      
     end    

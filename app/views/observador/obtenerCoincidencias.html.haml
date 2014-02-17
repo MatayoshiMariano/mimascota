@@ -14,7 +14,7 @@
             = candidato.age
           %p
             %b #{t('dog.breed')}:
-            = candidato.breed
+            = Breed.find(candidato.breed_id).label
           %p
             %b #{t('dog.color')}:
             = candidato.color

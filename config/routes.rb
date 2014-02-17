@@ -2,8 +2,8 @@ Mimascota::Application.routes.draw do
 
   get "cargador/cargarBreeds"
   get "cargador/ejemploJson"
-  get "cargador/testSubirPerroBuscado"
-  post "cargador/subirPerroBuscado"
+  get "cargador/testSubirPerroPerdido"
+  post "cargador/subirPerroPerdido"
 
   resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
 
