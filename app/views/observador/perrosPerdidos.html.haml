@@ -3,7 +3,7 @@
 %table
   %tr
     %th Nombre
-    %th Breed
+    %th Breed_id
     %th Latitude
     %th Longitude
     %th Gmaps
@@ -12,7 +12,7 @@
   - @perros.each do |perro|
     %tr
       %td= perro.name
-      %td= perro.breed
+      %td= perro.breed_id
       %td= perro.latitude
       %td= perro.longitude
       %td= perro.gmaps
