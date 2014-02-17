@@ -25,6 +25,7 @@ class CargadorController < ApplicationController
     f = File.open("app/assets/images/wanted_dogs/perro#{WantedDog.last.id + 1}.jpg")
 
     @var["image"] = f
+    @var["breed"] = Breed.new(:label => @var["breed"])
 
     perro = WantedDog.new(@var)
 
