@@ -64,6 +64,17 @@ es:
               blank: " "
             gmaps4rails_address:
               invalid_address: "Dirección invalida"
+    models:
+      lost_dog: "Perro"
+    attributes:
+      lost_dog:
+        name: "Nombre"        
+        user: "Dueño"
+        age: "Edad"
+        breed: "Raza"
+        color: "Color pelaje"
+        description: "Descripción"
+        image: "Imagen"             
   back: Volver
   update: Actualizar
   atras: Atrás
@@ -152,15 +163,3 @@ es:
     new_wanted_dog_button: Publicar mi mascota
   errors:
    format: "%{message}"
-  activerecord:
-    models:
-      lost_dog: "Perro"
-    attributes:
-      lost_dog:
-        name: "Nombre"        
-        user: "Dueño"
-        age: "Edad"
-        breed: "Raza"
-        color: "Color pelaje"
-        description: "Descripción"
-        image: "Imagen"

@@ -49,42 +49,6 @@ es:
       unlocked: Tu cuenta fue desbloqueada. Tu cuenta fue desbloqueada. Ya puedes iniciar sesión.
   errors: &errors
     format: ! '%{attribute} %{message}'
-    messages:
-      already_confirmed: ya fue confirmada, por favor intenta iniciar sesión
-      confirmation_period_expired: necesita confirmarse dentro de %{period}, por favor solicita una nueva
-      expired: ha expirado, por favor solicita una nueva
-      not_found: no se encontró
-      not_locked: no estaba bloqueada
-      not_saved:
-        one: ! 'Un error ocurrió al tratar de guardar %{resource}:'
-        other: ! '%{count} errores ocurrieron al tratar de guardar %{resource}:'
-      accepted: debe ser aceptado
-      blank: no puede estar en blanco
-      confirmation: no coincide con la confirmación
-      empty: no puede estar vacío
-      equal_to: debe ser igual a %{count}
-      even: debe ser un número par
-      exclusion: está reservado
-      greater_than: debe ser mayor que %{count}
-      greater_than_or_equal_to: debe ser mayor o igual que %{count}
-      inclusion: no está incluído en la lista
-      invalid: es inválido
-      less_than: debe ser menor que %{count}
-      less_than_or_equal_to: debe ser menor o igual que %{count}
-      not_a_number: no es un número
-      not_an_integer: debe ser un entero
-      odd: debe ser un número non
-      record_invalid: ! 'La validación falló: %{errors}'
-      taken: ya ha sido tomado
-      too_long:
-        one: es demasiado largo (máximo 1 caracter)
-        other: es demasiado largo (máximo %{count} caracteres)
-      too_short:
-        one: es demasiado corto (mínimo 1 caracter)
-        other: es demasiado corto (mínimo %{count} caracteres)
-      wrong_length:
-        one: longitud errónea (debe ser de 1 caracter)
-        other: longitud errónea (debe ser de %{count} caracteres)
   date:
       abbr_day_names:
       - dom
