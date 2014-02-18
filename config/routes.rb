@@ -5,7 +5,7 @@ Mimascota::Application.routes.draw do
   get "cargador/testSubirPerroPerdido"
   post "cargador/subirPerroPerdido"
 
-  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
+  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog, :found_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -33,11 +33,10 @@ Mimascota::Application.routes.draw do
 
   post 'lost_dog/new' => 'lost_dog#create'
   post 'wanted_dog/new' => 'wanted_dog#create'
-  post 'adoption_dog/new' => 'adoption_dog#create'  
+  post 'adoption_dog/new' => 'adoption_dog#create'
   get 'users/show/:id', to: 'users#show', as: 'user_show'
   get 'users/mi_mascota', to: 'users#my_pet', as: 'user_my_pet'
   get 'users/mis_posibles_macotas', to: 'users#my_possibles', as: 'user_my_possibles'
-  resources :found_dog
   
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',

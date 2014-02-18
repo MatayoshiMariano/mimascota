@@ -16,16 +16,19 @@ class FoundDogController < ApplicationController
     @dogs = FoundDog.all
   end
 
-  def new    
-    if params[:wanted_dog_id]
+  def create 
+    binding.pry
+    if params[:wanted_dog_id].present?
+      binding.pry
       @old_wanted_dog = WantedDog.find(params[:wanted_dog_id])
       @dog_data = @old_wanted_dog
     else
+      binding.pry
       @old_wanted_dog = WantedDog.find_by user_id: current_user.id
       @old_lost_dog = LostDog.find(params[:lost_dog_id])
       @dog_data = @old_lost_dog
     end
-
+    binding.pry
     found_dog = FoundDog.new
     found_dog.name = @old_wanted_dog.name
     found_dog.age = @old_wanted_dog.age
@@ -39,18 +42,19 @@ class FoundDogController < ApplicationController
     found_dog.save
 
     possibles_dogs = DogPossibleOwner.where("user_id =" + current_user.id.to_s)
-    possibles_dogs.each {|item| item.destroy }
+    possibles_dogs.each {|item| item.delete }
     if @old_lost_dog
-      @old_lost_dog.destroy
+      @old_lost_dog.delete
     end  
-    @old_wanted_dog.destroy
+    @old_wanted_dog.delete
     
-    redirect_to found_dog
+    redirect_to found_dog_path(found_dog)
   end  
 
   def show
     @dog = FoundDog.find(params[:id])
     @markers = @dog.to_gmaps4rails
+    binding.pry
   end  
 
   private
