@@ -5,7 +5,7 @@ Mimascota::Application.routes.draw do
   get "cargador/testSubirPerroPerdido"
   post "cargador/subirPerroPerdido"
 
-  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog
+  resources :lost_dog, :noticia, :wanted_dog, :adoption_dog, :found_dog
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,7 +13,7 @@ Mimascota::Application.routes.draw do
   # You can have the  root of your site routed with "root"
   root to: 'welcome#index'
 
-  get 'observador/obtenerCoincidencias/:id' => 'observador#obtenerCoincidencias'
+  get 'observador/obtenerCoincidencias/:id' => 'observador#obtenerCoincidencias', as: 'get_matches'
   get 'observador/perrosEncontrados'
   get 'observador/perrosPerdidos'
   get 'observador/perrosBuscados'
@@ -34,10 +34,12 @@ Mimascota::Application.routes.draw do
   post 'lost_dog/new' => 'lost_dog#create'
   post 'wanted_dog/new' => 'wanted_dog#create'
   post 'adoption_dog/new' => 'adoption_dog#create'  
+  post 'adoption_dog/la_adoptaron/:id', to: 'adoption_dog#has_been_adopted', as: 'adoption_dog_has_been_adopted'
+
   get 'users/show/:id', to: 'users#show', as: 'user_show'
   get 'users/mi_mascota', to: 'users#my_pet', as: 'user_my_pet'
-  get 'users/mis_posibles_macotas', to: 'users#my_possibles', as: 'user_my_possibles'
-  resources :found_dog
+  get 'users/contactos', to: 'users#my_possibles', as: 'user_my_possibles'
+  get 'users/mis_mascotas_en_adopcion', to: 'users#my_pets_in_adoption', as: 'user_my_pets_in_adoption'
   
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',

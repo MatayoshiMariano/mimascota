@@ -21,4 +21,4 @@
         = image_tag @dog.image.url
 
       = link_to "Inicio", root_path, class: "btn btn-primary", style: "color: white;"
-      = link_to "¡La encontrámos!", new_found_dog_path + '?wanted_dog_id=' + @dog.id.to_s, class: "btn btn-primary", style: "color: white;"
+      = link_to "¡La encontrámos!", found_dog_index_path(wanted_dog_id: @dog.id.to_s), class: "btn btn-primary", style: "color: white;", method: :post

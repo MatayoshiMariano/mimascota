@@ -1,4 +1,4 @@
-%h1 #{t('lost_dog.possibles_title')}
+%h1 #{t('lost_dog.contact_owner')}
 
 .row-fluid
   .span10
@@ -21,3 +21,15 @@
           %p
             %b Encontrado por
             = lostdog.user.fullname
+          %p.contact-item
+            %b Celular:
+            = lostdog.user.cellphone
+          %p.contact-item
+            %b  Teléfono:
+            = lostdog.user.phone
+          %p.contact-item            
+            %b  Email:
+            = lostdog.user.email
+          %p
+            %b
+              = link_to "Es el mio!", found_dog_index_path(lost_dog_id: lostdog.id.to_s), class: "btn btn-primary", style: "color: white;", method: :post

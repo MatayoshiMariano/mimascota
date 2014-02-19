@@ -11,6 +11,18 @@ class User < ActiveRecord::Base
 		self.first_name + ' ' + self.last_name
 	end
 
+  def get_my_wanted_pet
+    return WantedDog.find_by user_id: self.id
+  end
+
+
+  def has_pet_in_adoptions
+    if AdoptionDog.find_by user_id: self.id
+      return true
+    end
+    return false
+  end
+  
   def has_pet
     if WantedDog.find_by user_id: self.id
       Rails.logger.info("TIENE MASCOTA!!!")

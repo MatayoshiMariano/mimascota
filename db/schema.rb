@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217214500) do
+ActiveRecord::Schema.define(version: 20140217231522) do
 
   create_table "adoption_dogs", force: true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140217214500) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "breed_id"
+    t.boolean  "adopted"
   end
 
   add_index "adoption_dogs", ["breed_id"], name: "index_adoption_dogs_on_breed_id", using: :btree

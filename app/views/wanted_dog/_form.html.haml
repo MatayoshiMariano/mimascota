@@ -1,4 +1,4 @@
-= form_for :wanted_dog do |f|
+= form_for :wanted_dog, url: {action: "create"} do |f|
   .row-fluid
   .offset2.span7
     - if @wanted_dog.errors.any?

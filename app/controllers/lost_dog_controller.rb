@@ -47,10 +47,11 @@ class LostDogController < ApplicationController
     @dog = LostDog.new(lostdog_params)
     @dog.user = current_user
     if params[:address].present?
-      coords = Gmaps4rails.geocode(params[:address])
-      @dog.latitude = coords[0][:lat] || 0
-      @dog.longitude = coords[0][:lng] || 0
-
+      # coords = Gmaps4rails.geocode(params[:address])
+      # @dog.latitude = coords[0][:lat] || -34.5843 
+      # @dog.longitude = coords[0][:lng] || -58.4843
+      @dog.latitude = -34.5843 
+      @dog.longitude = -58.4843
     end
 
     if @dog.save

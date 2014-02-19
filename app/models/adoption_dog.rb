@@ -1,5 +1,6 @@
 class AdoptionDog < ActiveRecord::Base
   include Dog
+
   acts_as_gmappable
 
   def gmaps4rails_marker_picture
