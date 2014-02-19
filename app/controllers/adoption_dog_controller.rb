@@ -12,8 +12,10 @@ class AdoptionDogController < ApplicationController
   end  
 
   def has_been_adopted
-    @dog = AdoptionDog.find(params[:id])
-    @dog.adopted = true
+    dog = AdoptionDog.find(params[:id])
+    dog.adopted = true
+    dog.save
+    redirect_to adoption_dog_path(dog)
   end  
 
   def new

@@ -1,5 +1,5 @@
 .row-fluid
-.offset1.span9
+.offset3.span4
   %div.well
     %p
       %b #{t('dog.name')}:
@@ -21,5 +21,11 @@
 
     = link_to "#{t('dog.adopt_dogs')}", adoption_dog_index_path, class: "btn btn-primary"
     - if !@dog.adopted
-      = link_to "#{t('dog.adoption_dog_has_been_adopted')}", adoption_dog_has_been_adopted_path, class: "btn btn-primary"
+      = link_to "#{t('dog.adoption_dog_has_been_adopted')}", adoption_dog_has_been_adopted_path(@dog), class: "btn btn-primary", method: :post
+
+.offset3.span4
+  .alert.alert-success
+    %p
+      %b
+        ¡ADOPTADA!      
 
