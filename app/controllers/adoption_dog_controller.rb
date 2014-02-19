@@ -11,6 +11,11 @@ class AdoptionDogController < ApplicationController
     @markers = @dog.to_gmaps4rails
   end  
 
+  def has_been_adopted
+    @dog = AdoptionDog.find(params[:id])
+    @dog.adopted = true
+  end  
+
   def new
     @dog = AdoptionDog.new
   end
@@ -40,6 +45,6 @@ class AdoptionDogController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def adoption_dog_params
-    params.require(:dog).permit(:name, :age, :breed_id, :color, :description, :address, :image)
+    params.require(:dog).permit(:name, :age, :breed_id, :color, :description, :address, :image, :adopted)
   end
 end

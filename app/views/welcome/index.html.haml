@@ -11,7 +11,7 @@
         %li
           %button.btn.btn-primary.btn-block.found-dogs{type: "button"} #{t('sidebar.found_dogs')}
     .span10
-      = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true } } })
+      = gmaps({"map_options" => {"auto_adjust" => false, detect_location: true, center_on_user: true , zoom: 13, auto_zoom: true},"markers" => {"data" => @json, "options" => {"rich_marker" => true} } })
 
     -if signed_in?
       .row-fluid

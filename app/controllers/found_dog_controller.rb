@@ -17,28 +17,26 @@ class FoundDogController < ApplicationController
   end
 
   def create 
-    binding.pry
     if params[:wanted_dog_id].present?
-      binding.pry
       @old_wanted_dog = WantedDog.find(params[:wanted_dog_id])
       @dog_data = @old_wanted_dog
     else
-      binding.pry
       @old_wanted_dog = WantedDog.find_by user_id: current_user.id
       @old_lost_dog = LostDog.find(params[:lost_dog_id])
       @dog_data = @old_lost_dog
     end
-    binding.pry
     found_dog = FoundDog.new
-    found_dog.name = @old_wanted_dog.name
-    found_dog.age = @old_wanted_dog.age
-    found_dog.breed_id = @dog_data.breed_id
-    found_dog.color = @dog_data.color
-    found_dog.user_id = @dog_data.user_id
-    found_dog.description = @dog_data.description
-    found_dog.image = @dog_data.image
-    found_dog.latitude = @dog_data.latitude
-    found_dog.longitude = @dog_data.longitude
+    if old_wanted_dog
+      found_dog.name = old_wanted_dog.name
+      found_dog.age = old_wanted_dog.age
+    end
+    found_dog.breed_id = dog_data.breed_id
+    found_dog.color = dog_data.color
+    found_dog.user_id = dog_data.user_id
+    found_dog.description = dog_data.description
+    found_dog.image = dog_data.image
+    found_dog.latitude = dog_data.latitude
+    found_dog.longitude = dog_data.longitude
     found_dog.save
 
     possibles_dogs = DogPossibleOwner.where("user_id =" + current_user.id.to_s)

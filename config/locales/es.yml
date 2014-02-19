@@ -9,6 +9,7 @@ es:
     email: e-mail    
   lost_dog:
     possibles_title: Mis posibles mascotas
+    contact_owner: Contactos
   activerecord:
     attributes:
       user:
@@ -99,6 +100,8 @@ es:
     app: Mi mascota
     my_pet: Mi mascota
     my_possibilities: Mis posibles mascotas    
+    owner_contacts: Dueños a contactar
+    my_pets_in_adoption: Mis mascotas en adopción        
   user:
     first_name: Nombre
     last_name: Apellido
@@ -136,6 +139,7 @@ es:
     image: Imagen
     seen_on: Visto en
     found_on: Encontrado en
+    adoption_dog_has_been_adopted: La adoptaron
   helpers:
     actions: "Actions"
     links:

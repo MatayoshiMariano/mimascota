@@ -5,7 +5,7 @@
       %div.container
         %img.logo{:src => "http://www.hdwallpapersfan.com/wp-content/uploads/2013/03/Happy-Dog-Pictures-3.jpg"}      
         .brand
-          = link_to "#{t('navbar.app')}", root_path, 'data-no-turbolink' => true, class: "link-to"
+          = link_to "#{t('navbar.app')}", root_path, 'data-no-turbolink' => true, class: "link-to", style: "color: white;"
         %ul.nav
           %li.home= link_to "#{t('navbar.home')}", root_path, 'data-no-turbolink' => true          
           - if !user_signed_in?
@@ -18,8 +18,11 @@
               %ul.dropdown-menu{"role" => "menu"}
                 - if current_user.has_pet             
                   %li.sign-out= link_to "#{t('navbar.my_pet')}", user_my_pet_path
+                  %li.sign-out= link_to "#{t('navbar.my_possibilities')}", get_matches_path(current_user.get_my_wanted_pet.id)
                 - if current_user.has_possibles
-                  %li.sign-out= link_to "#{t('navbar.my_possibilities')}", user_my_possibles_path
+                  %li.sign-out= link_to "#{t('navbar.owner_contacts')}", user_my_possibles_path
+                - if current_user.has_pet_in_adoptions
+                  %li.sign-out= link_to "#{t('navbar.my_pets_in_adoption')}", user_my_pets_in_adoption_path                  
                 %li.sign-out= link_to "#{t('navbar.sign_out')}", destroy_user_session_path, :method=>'delete'                          
           %li.noticias
             %a{href: noticia_path} #{t('noticias')}

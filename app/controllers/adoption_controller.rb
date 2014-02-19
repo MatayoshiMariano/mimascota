@@ -27,6 +27,11 @@ class AdoptionController < ApplicationController
     @adoption_dog = Adoption_dog.new(adoption_dog_params)
 
     respond_to do |format|
+      if params[:address] != ''
+        coords = Gmaps4rails.geocode(params[:address])
+        @adoption_dog.latitude = coords[0][:lat] || -34.5843
+        @adoption_dog.longitude = coords[0][:lng] || -58.4843
+      end      
       if @adoption_dog.save
         format.html { redirect_to @adoption_dog, notice: 'adoption_dog was successfully created.' }
         format.json { render action: 'show', status: :created, location: @adoption_dog }

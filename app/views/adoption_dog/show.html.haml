@@ -20,3 +20,6 @@
       = image_tag @dog.image.url
 
     = link_to "#{t('dog.adopt_dogs')}", adoption_dog_index_path, class: "btn btn-primary"
+    - if !@dog.adopted
+      = link_to "#{t('dog.adoption_dog_has_been_adopted')}", adoption_dog_has_been_adopted_path, class: "btn btn-primary"
+

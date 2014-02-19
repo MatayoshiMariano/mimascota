@@ -21,6 +21,10 @@
           %p
             %b #{t('dog.description')}:
             = dog.description
+          - if !@dog.adopted
+          %p
+            %b 
+            = link_to "#{t('dog.adoption_dog_has_been_adopted')}", adoption_dog_has_been_adopted_path, class: "btn btn-primary"
 
   .span2
     = link_to "#{t('welcome.new_adoption_dog_button')}", new_adoption_dog_path, class: "btn btn-primary btn-block lost-dogs", style: "color: white;"

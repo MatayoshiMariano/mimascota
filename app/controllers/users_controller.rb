@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   def my_possibles
   	possibles_ids = DogPossibleOwner.where("user_id =" + current_user.id.to_s).pluck("dog_id")
   	if possibles_ids
-  		Rails.logger.info("POSIBILIDADES!!!")
-  		Rails.logger.info(possibles_ids)
 	  	@lostdogs = LostDog.find(possibles_ids)
 	  	if @lostdogs
 	  		render :template => '/lost_dog/possibles'

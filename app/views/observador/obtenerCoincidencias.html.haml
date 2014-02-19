@@ -8,16 +8,15 @@
           .media-object
             %img{src: candidato.image.url }
         .media-body
-          %h4= candidato.name
-          %p
-            %b #{t('dog.age')}:
-            = candidato.age
           %p
             %b #{t('dog.breed')}:
-            = Breed.find(candidato.breed_id).label
+            = candidato.breed.label
           %p
             %b #{t('dog.color')}:
             = candidato.color
           %p
             %b #{t('dog.description')}:
             = candidato.description
+          %p
+            %b
+              = link_to "Creo que es el mio", user_show_path(candidato.user_id.to_s)+ '?dog_id=' + candidato.id.to_s, class: "btn btn-primary", style: "color: white;"             

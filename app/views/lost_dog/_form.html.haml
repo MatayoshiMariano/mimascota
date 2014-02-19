@@ -10,7 +10,7 @@
       %div.well
         %div
           = f.label :breed, "#{t('dog.breed')}"
-          = f.select :breed_id, Breed.all.collect {|b| [b.label, b.id]}.order('label'), required:true
+          = f.select :breed_id, Breed.all.collect {|b| [b.label, b.id]}, required:true
         %div
           = f.label :color, "#{t('dog.color')}"
           = f.text_field :color, class: "textField", required: true

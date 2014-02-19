@@ -32,9 +32,8 @@ class WantedDogController < ApplicationController
     respond_to do |format|
       if params[:address] != ''
         coords = Gmaps4rails.geocode(params[:address])
-        @wanted_dog.latitude = coords[0][:lat]
-        @wanted_dog.longitude = coords[0][:lng]
-
+        @wanted_dog.latitude = coords[0][:lat] || -34.5843
+        @wanted_dog.longitude = coords[0][:lng] || -58.4843
       end 
 
       @wanted_dog.user = current_user
